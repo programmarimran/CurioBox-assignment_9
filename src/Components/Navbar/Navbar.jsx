@@ -1,9 +1,17 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
+// import { GiHamburgerMenu } from "react-icons/gi";
+// import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
-  const {email}=use(AuthContext)
+  const {user,signOutUser}=use(AuthContext)
+  const [state,setState]=useState(false)
+  const handleHambarger=()=>{
+    setState(!state)
+  }
   const links = (
     <>
       <NavLink className=" link-hover" to={"/"}>
@@ -19,24 +27,15 @@ const Navbar = () => {
   );
   return (
     <div className="navbar">
-      <div className="navbar-start">
+      <div className="navbar-start gap-4">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+           <div onClick={handleHambarger}>
+            {
+              state?<RxCross2 />:<GiHamburgerMenu size={24}/>
+            }
+           
+           </div>
           </div>
           <ul
             tabIndex={0}
@@ -45,7 +44,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to={"/"} className="text-xl">
+        <Link to={"/"} className="text-xl font-bold">
           CurioBox
         </Link>
       </div>
@@ -55,10 +54,10 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
         <div className="avatar">
           <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-            <img title={email} src="https://i.ibb.co.com/fzm4RWdy/IMG-20210810-221115.jpg" />
+            <img title={user?.email} src={user.photoURL} />
           </div>
         </div>
-        <Link to={'/auth'} className="btn btn-primary">Login</Link>
+        <Link to={'/auth'} className="btn btn-primary">{user?<span onClick={()=>signOutUser()}>Logout</span>:<span>Login in</span>}</Link>
       </div>
     </div>
   );
