@@ -24,11 +24,11 @@ const SwiperSlider = () => {
     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
       {products.map((product) => (
         <SwiperSlide>
-          <div className="hero rounded-2xl bg-linear-to-t md:bg-linear-to-r from-[#D8BFD8] to-[#87CEFA] w-full bg-gray-300 md:h-[350px] h-[450px]">
+          <div className="hero rounded-2xl bg-linear-to-t md:bg-linear-to-r from-[#D8BFD8] to-[#87CEFA] w-full bg-gray-300 md:h-[350px] h-[500px]">
             <div className="md:hero-content p-4   flex flex-col flex-col-reverse md:grid grid-cols-3 ">
               <div className=" col-span-2 flex flex-col justify-center items-center">
-                <p>{product.name}</p>
-                <h1 className=" text-xl text-center md:text-3xl my-2 md:my-4 font-bold">
+                <p className=" pt-4 md:pt-0">{product.name}</p>
+                <h1 className=" md:w-4/6 mx-auto text-xl text-start md:text-3xl my-2 md:my-4 font-bold">
                   {product.slogan}
                 </h1>
                 <form onSubmit={handleSubscribe} className=" space-y-2 md:flex">

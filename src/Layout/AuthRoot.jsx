@@ -15,12 +15,15 @@ const AuthRoot = () => {
               </section>
             </header>
            </div>
+           <section className=' max-w-7xl mx-auto'>
+
             <main className=' w-11/12 mx-auto'>
                 <section className=" min-h-[calc(100vh-358.09px)]">
 
                 <Outlet></Outlet>
                 </section>
             </main>
+           </section>
            <footer>
             <Footer></Footer>
            </footer>
