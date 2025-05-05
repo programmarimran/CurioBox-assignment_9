@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 import { toast } from "react-toastify";
 export const AuthContext = createContext(null);
 const auth=getAuth(app)
 const AuthProvider = ({ children }) => {
+  // hero email
+  const [heroemail,setHeroEmail]=useState(null)
+  console.log(heroemail)
   // user state
   const [user,setUser]=useState(null)
-  console.log(user)
+  // console.log(user)
   // Register user
   const createUser=(email,password)=>{
     return createUserWithEmailAndPassword(auth,email,password)
@@ -23,6 +26,10 @@ const AuthProvider = ({ children }) => {
     .then(res=>{
       res&& toast.dismiss("Logout Successfully!!")
     })
+  }
+  //Reset password Forgot password
+  const resetPassword=(email)=>{
+    return sendPasswordResetEmail(auth,email)
   }
   // Updated user profile
   const updatedProfile=(displayName,photoURL)=>{
@@ -42,7 +49,10 @@ const AuthProvider = ({ children }) => {
     signInUser,
     signOutUser,
     updatedProfile,
+    resetPassword,
     user,
+    heroemail,
+    setHeroEmail,
     name: "imran",
     email: "imran@gmail.com",
   };

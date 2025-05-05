@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { use, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -7,12 +7,18 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
 import { ProductContext } from "../../ProductProvider/ProductProvider";
-
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router";
 const SwiperSlider = () => {
+  const navigate = useNavigate();
   const products = useContext(ProductContext);
+  const {setHeroEmail}=use(AuthContext)
   // console.log(products);
   const handleSubscribe=(e)=>{
     e.preventDefault()
+    const email=e.target.email.value;
+    setHeroEmail(email)
+    navigate("/auth")
   }
   return (
     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
@@ -26,8 +32,8 @@ const SwiperSlider = () => {
                   {product.slogan}
                 </h1>
                 <form onSubmit={handleSubscribe} className=" space-y-2 md:flex">
-                  <input className=" input" type="text" placeholder=" Email" />
-                  <button type="button" className=" btn btn-secondary">Subscribe</button>
+                  <input className=" input" name="email" type="email" placeholder=" Email" />
+                  <button type="submit" className=" btn btn-secondary">Subscribe</button>
                 </form>
               </div>
               <div className=" col-span-1">
