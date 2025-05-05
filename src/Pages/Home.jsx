@@ -4,7 +4,7 @@ import SwiperSlider from "../Components/HomeLayout/SwiperSlider";
 const Home = () => {
   return (
     <div>
-      <header className=" w-11/12 mx-auto">
+      <header className="">
         <section  className=" rounded-2xl">
           <SwiperSlider></SwiperSlider>
         </section>

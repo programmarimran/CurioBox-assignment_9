@@ -21,7 +21,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -58,7 +58,7 @@ const Navbar = () => {
             <img title={email} src="https://i.ibb.co.com/fzm4RWdy/IMG-20210810-221115.jpg" />
           </div>
         </div>
-        <Link to={'/auth'} className="btn">Login</Link>
+        <Link to={'/auth'} className="btn btn-primary">Login</Link>
       </div>
     </div>
   );

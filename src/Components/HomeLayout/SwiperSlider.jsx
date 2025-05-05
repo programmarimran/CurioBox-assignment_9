@@ -9,37 +9,36 @@ import { Navigation } from "swiper/modules";
 import { ProductContext } from "../../ProductProvider/ProductProvider";
 
 const SwiperSlider = () => {
-  const products=useContext(ProductContext)
-  console.log(products)
+  const products = useContext(ProductContext);
+  // console.log(products);
+  const handleSubscribe=(e)=>{
+    e.preventDefault()
+  }
   return (
     <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-{
-  products.map(product=>(
-
-    <SwiperSlide>
-    <div className="hero rounded-2xl  w-full bg-gray-300 h-[400px]">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="">
-        <img
-          src={product.banner}
-          className=" w-full rounded-lg object-cover shadow-2xl"
-        />
-        </div>
-        <div>
-          <h1 className="text-3xl font-bold">{product.slogan}</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut
-            assumenda excepturi exercitationem quasi. In deleniti eaque aut
-            repudiandae et a id nisi.
-          </p>
-          <button className="btn btn-primary">Get Started</button>
-        </div>
-      </div>
-    </div>
-  </SwiperSlide>
-  ))
-}
-      
+      {products.map((product) => (
+        <SwiperSlide>
+          <div className="hero rounded-2xl bg-linear-to-t md:bg-linear-to-r from-[#D8BFD8] to-[#87CEFA] w-full bg-gray-300 md:h-[350px] h-[450px]">
+            <div className="md:hero-content p-4   flex flex-col flex-col-reverse md:grid grid-cols-3 ">
+              <div className=" col-span-2 flex flex-col justify-center items-center">
+                <h1 className=" text-xl text-center md:text-3xl my-2 md:my-4 font-bold">
+                  {product.slogan}
+                </h1>
+                <form onSubmit={handleSubscribe} className=" space-y-2 md:flex">
+                  <input className=" input" type="text" placeholder=" Email" />
+                  <button type="button" className=" btn btn-secondary">Subscribe</button>
+                </form>
+              </div>
+              <div className=" col-span-1">
+                <img
+                  src={product.banner}
+                  className="rounded-lg object-cover shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
