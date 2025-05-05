@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {email}=use(AuthContext)
   const links = (
     <>
       <NavLink className=" link-hover" to={"/"}>
@@ -16,7 +18,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,7 +46,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to={"/"} className="text-xl">
-          CurioBox{" "}
+          CurioBox
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -53,10 +55,10 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
         <div className="avatar">
           <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-            <img title="md imran hasan" src="https://i.ibb.co.com/fzm4RWdy/IMG-20210810-221115.jpg" />
+            <img title={email} src="https://i.ibb.co.com/fzm4RWdy/IMG-20210810-221115.jpg" />
           </div>
         </div>
-        <a className="btn">Login</a>
+        <Link to={'/auth'} className="btn">Login</Link>
       </div>
     </div>
   );

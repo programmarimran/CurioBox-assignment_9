@@ -1,0 +1,233 @@
+[
+    {
+      "id": 1,
+      "name": "Creative Kids Box",
+      "slogan": "Unleash Creativity—One Craft at a Time!",
+      "thumbnail": "https://i.ibb.co.com/BVq7XvFn/facebook-profile-image-180x180.jpg",
+      "banner": "https://i.ibb.co.com/kg4K1dt0/facebook-ad-carousel-600x600.jpg",
+      "frequency": "Monthly",
+      "price": 29.99,
+      "description": "Fun DIY crafts and creative activities to spark your child's imagination.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "DIY Craft Kits",
+        "Non-toxic Materials",
+        "Fun Learning Projects"
+      ],
+      "subscription_benefits": [
+        "New Crafts Every Month",
+        "Video Instructions",
+        "Parent Guide Included"
+      ],
+      "ratings": 4.7,
+      "number_of_reviews": 542
+    },
+    {
+      "id": 2,
+      "name": "STEM Builders Box",
+      "slogan": "Build, Experiment, Discover—STEM Made Fun!",
+      "thumbnail": "https://i.ibb.co.com/0ywJ6PDY/image-180x180.png",
+      "banner": "https://i.ibb.co.com/jk3Jkgff/image-800x600.png",
+      "frequency": "Monthly",
+      "price": 34.99,
+      "description": "Explore STEM with hands-on experiments, puzzles, and building kits.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Science Experiments",
+        "Engineering Projects",
+        "Math Challenges"
+      ],
+      "subscription_benefits": [
+        "STEM Certificate",
+        "Monthly Challenges",
+        "Live Workshop Invites"
+      ],
+      "ratings": 4.8,
+      "number_of_reviews": 615
+    },
+    {
+      "id": 3,
+      "name": "Adventure Play Box",
+      "slogan": "Every Box, A New Adventure Awaits!",
+      "thumbnail": "https://i.ibb.co.com/GQCX66Zz/image-180x180-1.png",
+      "banner": "https://i.ibb.co.com/zTr0NNY9/image-800x600-1.png",
+      "frequency": "Bi-Monthly",
+      "price": 24.50,
+      "description": "Adventure-themed toys and stories for active and curious kids.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Story-Based Play",
+        "Imaginative Toys",
+        "Outdoor Fun Tools"
+      ],
+      "subscription_benefits": [
+        "Character Cards",
+        "Adventure Maps",
+        "Collectible Badges"
+      ],
+      "ratings": 4.6,
+      "number_of_reviews": 430
+    },
+    {
+      "id": 4,
+      "name": "Little Reader Box",
+      "slogan": "Big Imaginations Start with Little Books!",
+      "thumbnail": "https://i.ibb.co.com/cX29tZQp/image-180x180-2.png",
+      "banner": "https://i.ibb.co.com/zHP0QwgY/image-800x600-2.png",
+      "frequency": "Monthly",
+      "price": 22.99,
+      "description": "New books every month with reading activities and rewards.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Age-Appropriate Books",
+        "Reading Stickers",
+        "Activity Sheets"
+      ],
+      "subscription_benefits": [
+        "Reading Rewards",
+        "Parent Tips",
+        "Story Time Video Access"
+      ],
+      "ratings": 4.9,
+      "number_of_reviews": 890
+    },
+    {
+      "id": 5,
+      "name": "Puzzle Time Box",
+      "slogan": "Challenge Your Mind—Solve, Think, Win!",
+      "thumbnail": "https://i.ibb.co.com/cSsdtTtB/image-180x180-3.png",
+      "banner": "https://i.ibb.co.com/FkCPznrg/image-800x600-3.png",
+      "frequency": "Monthly",
+      "price": 19.99,
+      "description": "Engaging brain games, puzzles, and logic toys.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Wooden Puzzles",
+        "Logic Games",
+        "Brain Teasers"
+      ],
+      "subscription_benefits": [
+        "Puzzle of the Month",
+        "Leaderboard Access",
+        "Solve & Win Prizes"
+      ],
+      "ratings": 4.5,
+      "number_of_reviews": 372
+    },
+    {
+      "id": 6,
+      "name": "Eco Play Box",
+      "slogan": "Play Green, Grow Smart!",
+      "thumbnail": "https://i.ibb.co.com/5xW3LVwk/image-180x180-4.png",
+      "banner": "https://i.ibb.co.com/bg38Bjnx/image-800x600-4.png",
+      "frequency": "Quarterly",
+      "price": 27.00,
+      "description": "Eco-friendly toys and nature-based learning tools.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Sustainable Materials",
+        "Nature Crafts",
+        "Gardening Activities"
+      ],
+      "subscription_benefits": [
+        "Plant a Tree Program",
+        "Eco Badge Earns",
+        "DIY Nature Projects"
+      ],
+      "ratings": 4.7,
+      "number_of_reviews": 290
+    },
+    {
+      "id": 7,
+      "name": "Mini Explorers Box",
+      "slogan": "Explore the World from Your Living Room!",
+      "thumbnail": "https://i.ibb.co.com/W47t1zPf/image-180x180-5.png",
+      "banner": "https://i.ibb.co.com/V0Zr8b8j/image-800x600-5.png",
+      "frequency": "Monthly",
+      "price": 26.99,
+      "description": "Travel the world from home with culture-themed toys and stories.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "World Maps",
+        "Country Stickers",
+        "Travel Toy Sets"
+      ],
+      "subscription_benefits": [
+        "Digital Passport",
+        "Stamps & Flags",
+        "Language Mini-Lessons"
+      ],
+      "ratings": 4.6,
+      "number_of_reviews": 410
+    },
+    {
+      "id": 8,
+      "name": "Musical Fun Box",
+      "slogan": "Play the Beat, Feel the Joy!",
+      "thumbnail": "https://i.ibb.co.com/B22KS2TS/image-180x180-6.png",
+      "banner": "https://i.ibb.co.com/TZQWWff/image-800x600-6.png",
+      "frequency": "Monthly",
+      "price": 21.50,
+      "description": "Introduce your child to music through fun and rhythm-based toys.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Mini Instruments",
+        "Rhythm Cards",
+        "Sing-Along Books"
+      ],
+      "subscription_benefits": [
+        "Downloadable Songs",
+        "Parent Music Guide",
+        "Musical Progress Tracker"
+      ],
+      "ratings": 4.4,
+      "number_of_reviews": 328
+    },
+    {
+      "id": 9,
+      "name": "Art Box Jr.",
+      "slogan": "Color Your World—Create Every Month!",
+      "thumbnail": "https://i.ibb.co.com/v4zbrzJT/facebook-profile-image-180x180-1.jpg",
+      "banner": "https://i.ibb.co.com/dwqDNHHK/facebook-ad-carousel-600x600-1.jpg",
+      "frequency": "Monthly",
+      "price": 28.00,
+      "description": "Paint, draw, and create with child-friendly art materials.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Non-toxic Paints",
+        "Sketchbooks",
+        "Colorful Stickers"
+      ],
+      "subscription_benefits": [
+        "Monthly Art Theme",
+        "Share & Feature Option",
+        "Bonus Coloring Pages"
+      ],
+      "ratings": 4.8,
+      "number_of_reviews": 490
+    },
+    {
+      "id": 10,
+      "name": "Building Blocks Box",
+      "slogan": "Build a World of Imagination—A New Creation Every Month!",
+      "thumbnail": "https://i.ibb.co.com/ZR6dyjB3/image-180x180-7.png",
+      "banner": "https://i.ibb.co.com/wZCCc7zh/image-800x600-7.png",
+      "frequency": "Monthly",
+      "price": 25.99,
+      "description": "Develop motor skills and creativity with unique building sets.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Interlocking Bricks",
+        "3D Models",
+        "STEM Building Challenges"
+      ],
+      "subscription_benefits": [
+        "New Model Every Month",
+        "Construction Guide",
+        "User Gallery Showcase"
+      ],
+      "ratings": 4.7,
+      "number_of_reviews": 578
+    }
+  ]
+  

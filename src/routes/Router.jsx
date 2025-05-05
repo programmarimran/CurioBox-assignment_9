@@ -4,6 +4,9 @@ import Home from "../Pages/Home";
 import AllBoxes from "../Pages/AllBoxes";
 import About from "../Pages/About";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Register from "../Pages/AuthPages/Register";
+import AuthRoot from "../Layout/AuthRoot";
+import Login from "../Pages/AuthPages/Login";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +28,23 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:'*',
-    element:<ErrorPage></ErrorPage>
-  }
+    path: "/auth",
+    element: <AuthRoot></AuthRoot>,
+    children: [
+      {
+        index:true,
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
 
 export default router;

@@ -1,33 +1,47 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useContext } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
 
-// import './styles.css';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
+import { Navigation } from "swiper/modules";
+import { ProductContext } from "../../ProductProvider/ProductProvider";
 
 const SwiperSlider = () => {
-    return (
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-      <SwiperSlide>
-        <div className=' rounded-lg h-[400px] mx-auto'>
-          <img className=' rounded-2xl object-cover object-bottom mx-auto' src="https://i.ibb.co.com/fzm4RWdy/IMG-20210810-221115.jpg" alt="" />
+  const products=useContext(ProductContext)
+  console.log(products)
+  return (
+    <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+{
+  products.map(product=>(
+
+    <SwiperSlide>
+    <div className="hero rounded-2xl  w-full bg-gray-300 h-[400px]">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="">
+        <img
+          src={product.banner}
+          className=" w-full rounded-lg object-cover shadow-2xl"
+        />
         </div>
-      </SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      <SwiperSlide>Slide 5</SwiperSlide>
-      <SwiperSlide>Slide 6</SwiperSlide>
-      <SwiperSlide>Slide 7</SwiperSlide>
-      <SwiperSlide>Slide 8</SwiperSlide>
-      <SwiperSlide>Slide 9</SwiperSlide>
+        <div>
+          <h1 className="text-3xl font-bold">{product.slogan}</h1>
+          <p className="py-6">
+            Provident cupiditate voluptatem et in. Quaerat fugiat ut
+            assumenda excepturi exercitationem quasi. In deleniti eaque aut
+            repudiandae et a id nisi.
+          </p>
+          <button className="btn btn-primary">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </SwiperSlide>
+  ))
+}
+      
     </Swiper>
-    );
+  );
 };
 
 export default SwiperSlider;
