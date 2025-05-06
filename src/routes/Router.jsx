@@ -9,6 +9,7 @@ import AuthRoot from "../Layout/AuthRoot";
 import Login from "../Pages/AuthPages/Login";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import ResetPassword from "../Pages/AuthPages/ResetPassword";
+import BoxDetails from "../Components/HomeLayout/BoxDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,14 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About></About>,
       },
+      {
+        path:"/box-details/:id",
+        loader:()=>fetch("/curiousDetails.json"),
+        element:<BoxDetails></BoxDetails>
+      },
     ],
   },
+
   {
     path: "/auth",
     element: <AuthRoot></AuthRoot>,

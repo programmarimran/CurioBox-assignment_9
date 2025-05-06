@@ -8,11 +8,11 @@ const AllBoxes = () => {
   return (
     <div>
       this is all AllBoxes
-      <div className=" grid grid-cols-3">
+      {/* <div className=" grid grid-cols-3">
         {details.map((product) => (
           <BoxDetails key={product.id} product={product}></BoxDetails>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

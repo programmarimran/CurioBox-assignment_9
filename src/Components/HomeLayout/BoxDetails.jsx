@@ -1,96 +1,132 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaStar } from "react-icons/fa";
-// import { Button } from "daisyui";
+import { useLoaderData, useParams } from "react-router";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
-const BoxDetails = ({ product }) => {
+const BoxDetails = () => {
+  const products = useLoaderData();
+  const { id } = useParams();
+  const product = products.find((p) => p.id == id);
+
   const [ratingType, setRatingType] = useState("Excellent");
-  const [ratingValue, setRatingValue] = useState("");
-
+  const [rating, setRating] = useState("");
   const handleSubmit = () => {
-    if (!ratingValue) {
-      alert("Please enter a rating.");
-      return;
+    if(!rating){
+      Swal.fire({
+                icon: "warning",
+                text: "Please select (1-5) rating",
+                confirmButtonText: "Ok",
+              })
+      return
     }
-    console.log("Submitted Rating:", { ratingType, ratingValue });
-    alert("Thanks for your rating!");
+    const userFeedback={comment:ratingType,rating:rating}
+    toast.success("Thanks for Your Feedback !!")
+    console.log(userFeedback)
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-6 space-y-4">
-      <img
-        src={product.banner}
-        alt={product.name}
-        className="w-full h-56 object-cover rounded-lg"
-      />
-      <h2 className="text-2xl font-bold text-gray-800">{product.name}</h2>
-      <p className="text-sm text-gray-500">{product.slogan}</p>
-      <p className="text-gray-600 text-sm mt-2">{product.description}</p>
-
-      <ul className="list-disc list-inside text-sm text-gray-700">
-        {product.features.map((feature, idx) => (
-          <li key={idx}>{feature}</li>
-        ))}
-      </ul>
-
-      <div className="flex flex-wrap gap-2 text-xs">
-        {product.subscription_benefits.map((benefit, idx) => (
-          <span
-            key={idx}
-            className="bg-blue-100 text-blue-800 px-2 py-1 rounded"
-          >
-            {benefit}
-          </span>
-        ))}
+    <div className="px-4 py-6 space-y-6">
+      <Helmet>
+        <title>{product.name}</title>
+      </Helmet>
+      {/* Title + Description */}
+      <div className="bg-gray-100 border-white border-2 p-5 rounded-lg text-center">
+        <h1 className="text-2xl font-bold">{product.name}</h1>
+        <p className="text-gray-600">{product.description}</p>
       </div>
 
-      <div className="flex items-center gap-2 mt-2">
-        <FaStar className="text-yellow-500" />
-        <span className="text-sm font-medium">
-          {product.ratings} ({product.number_of_reviews} reviews)
-        </span>
-      </div>
-
-      <p className="text-lg font-semibold text-green-600">${product.price}</p>
-
-      <button className="btn btn-primary w-full">Add to Cart</button>
-
-      {/* Rating Submission Section */}
-      <div className="bg-gray-50 p-4 rounded-md mt-4 space-y-3">
-        <div>
-          <label className="label">
-            <span className="label-text">Select Rating Type</span>
-          </label>
-          <select
-            className="select select-bordered w-full"
-            value={ratingType}
-            onChange={(e) => setRatingType(e.target.value)}
-          >
-            <option>Excellent</option>
-            <option>Good</option>
-            <option>Average</option>
-            <option>Poor</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="label">
-            <span className="label-text">Your Rating (1-5)</span>
-          </label>
-          <input
-            type="number"
-            className="input input-bordered w-full"
-            placeholder="Give a rating (e.g. 4.5)"
-            min="1"
-            max="5"
-            step="0.1"
-            value={ratingValue}
-            onChange={(e) => setRatingValue(e.target.value)}
+      {/* Image + Details + Rating + Price */}
+      <div className="bg-white shadow rounded-lg p-4 flex flex-col md:flex-row gap-4">
+        {/* Image */}
+        <div className="w-full flex justify-center items-center md:w-2/3">
+          <img
+            src={product.banner}
+            alt={product.name}
+            className="rounded-md w-full  object-cover"
           />
         </div>
 
-        <button className="btn btn-success w-full" onClick={handleSubmit}>
-          Submit Rating
-        </button>
+        {/* Info */}
+        <div className="w-full md:w-2/3 rounded-2xl bg-amber-50 p-4 space-y-7">
+          <h2 className="text-xl font-semibold">{product.name}</h2>
+          <p className="text-sm text-gray-500">{product.slogan}</p>
+
+          <p className="text-gray-600 text-sm mt-2">{product.description}</p>
+
+          <ul className="list-disc list-inside text-sm text-gray-700">
+            {product.features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-2 text-xs">
+            {product.subscription_benefits.map((benefit, index) => (
+              <span
+                key={index}
+                className="bg-blue-100 text-blue-800 px-2 py-1 rounded"
+              >
+                {benefit}
+              </span>
+            ))}
+          </div>
+          {/* card bottom price and rating */}
+          <div className=" flex justify-between">
+            <p className="text-yellow-600 font-semibold">
+              ⭐ {product.ratings || 4.5} ({product.number_of_reviews || 120}{" "}
+              reviews)
+            </p>
+            <p className="text-green-700 font-bold text-lg">
+              ${product.price || 22}
+            </p>
+          </div>
+          <button className="btn btn-primary w-full ">Add to Cart</button>
+        </div>
+      </div>
+
+      {/* Rating Form */}
+      <div className="bg-gray-50 p-5 rounded-lg">
+        <h3 className="text-lg font-semibold mb-3">Please Give Your Rating</h3>
+        <div className="space-y-4">
+          <div>
+            <label className="block mb-1">Rating Type</label>
+            <select
+              className="select select-bordered w-full"
+              value={ratingType}
+              onChange={(e) => setRatingType(e.target.value)}
+            >
+              <option>Excellent</option>
+              <option>Very Good</option>
+              <option>Good</option>
+              <option>Average</option>
+              <option>Poor</option>
+            </select>
+          </div>
+          <div>
+            <label className="block mb-2 font-medium">Rating (1-5)</label>
+            <div className="flex gap-1 text-2xl">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <button
+                  key={num}
+                  type="button"
+                  onClick={() => setRating(num)}
+                  className={
+                    num <= rating ? "text-yellow-400" : "text-gray-300"
+                  }
+                >
+                  <FaStar />
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-sm text-gray-600">
+              Your rating: {rating} star{rating > 1 ? "s" : ""}
+            </p>
+          </div>
+          <button className="btn btn-success w-full" onClick={handleSubmit}>
+            Submit Rating
+          </button>
+        </div>
       </div>
     </div>
   );

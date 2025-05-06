@@ -39,7 +39,7 @@ const BoxCard = ({ product }) => {
         </div>
 
         <Link
-          to={`/product/${product.id}`}
+          to={`/box-details/${product.id}`}
           className="btn btn-primary btn-sm w-full mt-4"
         >
           View Details
