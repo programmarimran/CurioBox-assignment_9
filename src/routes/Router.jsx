@@ -10,6 +10,8 @@ import Login from "../Pages/AuthPages/Login";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 import ResetPassword from "../Pages/AuthPages/ResetPassword";
 import BoxDetails from "../Components/HomeLayout/BoxDetails";
+import Loading from "../Pages/Loading";
+import OutsideErrorPage from "../Pages/ErrorPage/OutsideErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,9 @@ const router = createBrowserRouter([
       {
         path:"/box-details/:id",
         loader:()=>fetch("/curiousDetails.json"),
-        element:<BoxDetails></BoxDetails>
+        element:<BoxDetails></BoxDetails>,
+        errorElement:<ErrorPage></ErrorPage>,
+        hydrateFallbackElement:<Loading></Loading>
       },
     ],
   },
@@ -56,7 +60,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>,
+    element: <OutsideErrorPage></OutsideErrorPage>
   },
 ]);
 
