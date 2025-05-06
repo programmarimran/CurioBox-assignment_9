@@ -1,6 +1,8 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+
 
 const ResetPassword = () => {
   const { resetPassword,forgotEmail } = use(AuthContext);
@@ -27,6 +29,7 @@ const ResetPassword = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center">
+      <Helmet><title>CurioBox||Reset Password</title></Helmet>
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className="text-xl pt-4 mx-auto font-bold">Reset Your Password ?</h1>
 

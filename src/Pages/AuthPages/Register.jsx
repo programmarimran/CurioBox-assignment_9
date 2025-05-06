@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet-async";
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -67,6 +69,7 @@ const Register = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center">
+      <Helmet><title>CurioBox||Register page</title></Helmet>
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <form onSubmit={handleRegister} className="card-body">
           <h1 className="text-3xl mx-auto font-bold">Register now!</h1>

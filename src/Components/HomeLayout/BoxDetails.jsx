@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
@@ -124,7 +124,7 @@ const BoxDetails = () => {
             </p>
           </div>
           <button className="btn btn-success w-full" onClick={handleSubmit}>
-            Submit Rating
+          Submit Review
           </button>
         </div>
       </div>

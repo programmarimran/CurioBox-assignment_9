@@ -1,15 +1,17 @@
 import React, { use, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 import { Navigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location=useLocation()
+  console.log(location)
 
   //  received context
   const { signInUser, setForgotEmail, heroemail, user, googleLogin } =
@@ -30,7 +32,8 @@ const Login = () => {
       .then((result) => {
         // console.log(result.user)
         result && toast.success("You successfully login!!");
-        navigate("/");
+        navigate(`${location?.state?location.state:'/'}`);
+        return
       })
       .catch((error) => {
         error && setError(error.code);
@@ -56,7 +59,7 @@ const Login = () => {
             Login Successfull!!
           </span>
         );
-        navigate("/");
+        navigate(`${location?.state?location.state:'/'}`);
         return;
       })
       .catch((error) => {
@@ -65,6 +68,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center">
+      <Helmet><title>CurioBox||Login Page</title></Helmet>
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className="text-3xl pt-4 mx-auto font-bold">
           {user ? "Already Success!!" : "Login now!"}

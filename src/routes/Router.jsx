@@ -31,9 +31,10 @@ const router = createBrowserRouter([
         element: <About></About>,
       },
       {
+
         path:"/box-details/:id",
         loader:()=>fetch("/curiousDetails.json"),
-        element:<BoxDetails></BoxDetails>,
+        element:<PrivateRoute><BoxDetails></BoxDetails></PrivateRoute>,
         errorElement:<ErrorPage></ErrorPage>,
         hydrateFallbackElement:<Loading></Loading>
       },
