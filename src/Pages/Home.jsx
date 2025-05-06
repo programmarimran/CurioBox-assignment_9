@@ -19,9 +19,9 @@ const Home = () => {
         </section>
       </header>
       <main>
-       <section className=" grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 my-24">
+       <section className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-24">
        {
-          products.map(product=><BoxCard key={product.id} product={product}></BoxCard>)
+          products.map(product=><BoxCard className={product.id==5?"order-1":''} key={product.id} product={product}></BoxCard>)
         }
        </section>
       </main>

@@ -1,27 +1,27 @@
-[
-    {
-      "id": 1,
-      "name": "Creative Kids Box",
-      "slogan": "Unleash Creativity—One Craft at a Time!",
-      "thumbnail": "https://i.ibb.co.com/BVq7XvFn/facebook-profile-image-180x180.jpg",
-      "banner": "https://i.ibb.co.com/kg4K1dt0/facebook-ad-carousel-600x600.jpg",
-      "frequency": "Monthly",
-      "price": 29.99,
-      "description": "Fun DIY crafts and creative activities to spark your child's imagination.",
-      "tech_category": "Toys & Kids",
-      "features": [
-        "DIY Craft Kits",
-        "Non-toxic Materials",
-        "Fun Learning Projects"
-      ],
-      "subscription_benefits": [
-        "New Crafts Every Month",
-        "Video Instructions",
-        "Parent Guide Included"
-      ],
-      "ratings": 4.7,
-      "number_of_reviews": 542
+[   {
+     "id": 1,
+     "name": "Little Reader Box",
+     "slogan": "Big Imaginations Start with Little Books!",
+     "thumbnail": "https://i.ibb.co.com/cX29tZQp/image-180x180-2.png",
+     "banner": "https://i.ibb.co.com/zHP0QwgY/image-800x600-2.png",
+     "frequency": "Monthly",
+     "price": 22.99,
+     "description": "New books every month with reading activities and rewards.",
+     "tech_category": "Toys & Kids",
+     "features": [
+       "Age-Appropriate Books",
+       "Reading Stickers",
+       "Activity Sheets"
+     ],
+     "subscription_benefits": [
+       "Reading Rewards",
+       "Parent Tips",
+       "Story Time Video Access"
+     ],
+     "ratings": 4.9,
+     "number_of_reviews": 890
     },
+   
     {
       "id": 2,
       "name": "STEM Builders Box",
@@ -68,29 +68,31 @@
       "ratings": 4.6,
       "number_of_reviews": 430
     },
+    
     {
       "id": 4,
-      "name": "Little Reader Box",
-      "slogan": "Big Imaginations Start with Little Books!",
-      "thumbnail": "https://i.ibb.co.com/cX29tZQp/image-180x180-2.png",
-      "banner": "https://i.ibb.co.com/zHP0QwgY/image-800x600-2.png",
+      "name": "Creative Kids Box",
+      "slogan": "Unleash Creativity—One Craft at a Time!",
+      "thumbnail": "https://i.ibb.co.com/BVq7XvFn/facebook-profile-image-180x180.jpg",
+      "banner": "https://i.ibb.co.com/kg4K1dt0/facebook-ad-carousel-600x600.jpg",
       "frequency": "Monthly",
-      "price": 22.99,
-      "description": "New books every month with reading activities and rewards.",
+      "price": 29.99,
+      "description": "Fun DIY crafts and creative activities to spark your child's imagination.",
       "tech_category": "Toys & Kids",
       "features": [
-        "Age-Appropriate Books",
-        "Reading Stickers",
-        "Activity Sheets"
+        "DIY Craft Kits",
+        "Non-toxic Materials",
+        "Fun Learning Projects"
       ],
       "subscription_benefits": [
-        "Reading Rewards",
-        "Parent Tips",
-        "Story Time Video Access"
+        "New Crafts Every Month",
+        "Video Instructions",
+        "Parent Guide Included"
       ],
-      "ratings": 4.9,
-      "number_of_reviews": 890
+      "ratings": 4.7,
+      "number_of_reviews": 542
     },
+
     {
       "id": 5,
       "name": "Puzzle Time Box",

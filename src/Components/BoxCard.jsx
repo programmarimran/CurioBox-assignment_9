@@ -9,7 +9,7 @@ const BoxCard = ({ product }) => {
       <img
         src={product.banner}
         alt={product.name}
-        className="w-full h-48 object-cover rounded-t-2xl"
+        className="w-full shadow-2xl h-48 object-cover rounded-t-2xl"
       />
 
       <div className="p-4 space-y-2 shadow-2xl border-t-2 border-gray-200 bg-gray-100 rounded-b-2xl">

@@ -112,7 +112,7 @@ const Register = () => {
               Register
             </button>
             {error && <p className="text-error text-sm">{error}</p>}
-            <p className=" text-md">
+            <p className=" text-sm">
               Already you have an Account? Please{" "}
               <Link className=" text-blue-500 underline" to={"/auth"}>
                 Login
