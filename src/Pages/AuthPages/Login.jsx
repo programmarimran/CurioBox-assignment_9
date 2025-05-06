@@ -11,7 +11,7 @@ const Login = () => {
   const { signInUser, resetPassword,heroemail } = use(AuthContext);
   // error state
   const [error, setError] = useState("");
-  console.log(error);
+  // console.log(error);
   // Login handleing start
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,21 +29,32 @@ const Login = () => {
         error && setError(error.code);
       });
   };
-  //Forgot Password handleing start
-  const refForgot = useRef();
-  const handleForgotPassword = () => {
-    const email = refForgot.current.value;
-    resetPassword(email)
-      .then(() => {
-        Swal.fire(
-          "Please check your email and click the link and chang password"
-        );
-        window.open(" https://mail.google.com", "_blank");
-      })
-      .catch((error) => {
-        setError(error.code);
-      });
-  };
+  
+    const refForgot = useRef();
+
+
+  
+    const handleForgotPassword = () => {
+      const email = refForgot.current.value;
+    
+    
+      resetPassword(email)
+        .then(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Check your email",
+            text: "Click the link in your email to change your password",
+            confirmButtonText: "Go to Gmail"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.open("https://mail.google.com", "_blank");
+            }
+          });
+        })
+        .catch((error) => {
+          setError(error.code);
+        });
+    };
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

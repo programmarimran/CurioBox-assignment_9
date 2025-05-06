@@ -7,7 +7,7 @@ import BoxCard from "../Components/BoxCard";
 
 const Home = () => {
   const products=use(ProductContext)
-  console.log(products)
+  // console.log(products)
   return (
     <div>
       <Helmet>

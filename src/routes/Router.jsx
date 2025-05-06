@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Register from "../Pages/AuthPages/Register";
 import AuthRoot from "../Layout/AuthRoot";
 import Login from "../Pages/AuthPages/Login";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allboxes",
-        element: <AllBoxes></AllBoxes>,
+        element: <PrivateRoute><AllBoxes></AllBoxes></PrivateRoute>,
       },
       {
         path: "/about",
