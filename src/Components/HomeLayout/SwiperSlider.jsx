@@ -31,9 +31,9 @@ const SwiperSlider = () => {
                 <h1 className=" md:w-4/6 mx-auto text-xl text-start md:text-3xl my-2 md:my-4 font-bold">
                   {product.slogan}
                 </h1>
-                <form onSubmit={handleSubscribe} className=" space-y-2 md:flex">
-                  <input className=" input" name="email" type="email" placeholder=" Email" />
-                  <button type="submit" className=" btn btn-secondary">Subscribe</button>
+                <form onSubmit={handleSubscribe} className=" w-10/12 space-y-2 md:flex">
+                  <input className=" w-full hover:border-2 border-gray-400 shadow-md hover:shadow-2xl input" name="email" type="email" placeholder="Enter your Email here..." />
+                  <button type="submit" className=" btn btn-secondary">Subscribe Now!!</button>
                 </form>
               </div>
               <div className=" col-span-1">

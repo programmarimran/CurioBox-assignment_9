@@ -4,11 +4,12 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   //  received context
-  const { signInUser, resetPassword,heroemail } = use(AuthContext);
+  const { signInUser, resetPassword, heroemail,user,googleLogin } = use(AuthContext);
   // error state
   const [error, setError] = useState("");
   // console.log(error);
@@ -23,52 +24,63 @@ const Login = () => {
       .then((result) => {
         // console.log(result.user)
         result && toast.success("You successfully login!!");
-        navigate("/")
+        navigate("/");
       })
       .catch((error) => {
         error && setError(error.code);
       });
   };
-  
-    const refForgot = useRef();
-
-
-  
-    const handleForgotPassword = () => {
-      const email = refForgot.current.value;
-    
-    
-      resetPassword(email)
-        .then(() => {
-          Swal.fire({
-            icon: "success",
-            title: "Check your email",
-            text: "Click the link in your email to change your password",
-            confirmButtonText: "Go to Gmail"
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.open("https://mail.google.com", "_blank");
-            }
-          });
-        })
-        .catch((error) => {
-          setError(error.code);
+  // Forgot Password handleing start
+  const refForgot = useRef();
+  const handleForgotPassword = () => {
+    const email = refForgot.current.value;
+    resetPassword(email)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Check your email",
+          text: "Click the link in your email to change your password",
+          confirmButtonText: "Go to Gmail",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.open("https://mail.google.com", "_blank");
+          }
         });
-    };
+      })
+      .catch((error) => {
+        setError(error.code);
+      });
+  };
+  // handle google login
+  const handleGoogleLogin=()=>{
+    googleLogin()
+    .then((result)=>{
+      console.log(result.user)
+       toast.success(<span className=" flex">Your <span><FcGoogle size={24}/></span> Login Successfull!!</span>)
+      navigate('/')
+      return
+    })
+    .catch(error=>{
+      setError(error.code)
+    })
+  }
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <h1 className="text-3xl pt-4 mx-auto font-bold">{user?'Already Success!!':'Login now!'}</h1>
+        <button onClick={handleGoogleLogin} className=" btn w-10/12 mx-auto mt-4">
+          <FcGoogle size={25}></FcGoogle>Login with Google!
+        </button>
         <form onSubmit={handleLogin} className="card-body">
-          <h1 className="text-3xl mx-auto font-bold">Login now!</h1>
-          <fieldset className="fieldset">
+          <fieldset className="fieldset ">
             {/* email */}
             <label className="label">Email</label>
             <input
-              type="email" 
+              type="email"
               defaultValue={heroemail}
               name="email"
               ref={refForgot}
-              className="input"
+              className="input mx-auto"
               placeholder="Email"
             />
             {/* password */}
@@ -76,7 +88,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              className="input"
+              className="input mx-auto"
               placeholder="Password"
             />
             {/* forget password */}
