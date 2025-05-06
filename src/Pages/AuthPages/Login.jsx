@@ -5,11 +5,17 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { Navigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
   const navigate = useNavigate();
+
   //  received context
-  const { signInUser, resetPassword, heroemail,user,googleLogin } = use(AuthContext);
+  const { signInUser, setForgotEmail, heroemail, user, googleLogin } =
+    use(AuthContext);
+  // password Eye show state
+  const [show, setShow] = useState(true);
   // error state
   const [error, setError] = useState("");
   // console.log(error);
@@ -34,41 +40,39 @@ const Login = () => {
   const refForgot = useRef();
   const handleForgotPassword = () => {
     const email = refForgot.current.value;
-    resetPassword(email)
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Check your email",
-          text: "Click the link in your email to change your password",
-          confirmButtonText: "Go to Gmail",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.open("https://mail.google.com", "_blank");
-          }
-        });
+    setForgotEmail(email);
+  };
+  // handle google login
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        toast.success(
+          <span className=" flex">
+            Your{" "}
+            <span>
+              <FcGoogle size={24} />
+            </span>{" "}
+            Login Successfull!!
+          </span>
+        );
+        navigate("/");
+        return;
       })
       .catch((error) => {
         setError(error.code);
       });
   };
-  // handle google login
-  const handleGoogleLogin=()=>{
-    googleLogin()
-    .then((result)=>{
-      console.log(result.user)
-       toast.success(<span className=" flex">Your <span><FcGoogle size={24}/></span> Login Successfull!!</span>)
-      navigate('/')
-      return
-    })
-    .catch(error=>{
-      setError(error.code)
-    })
-  }
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <h1 className="text-3xl pt-4 mx-auto font-bold">{user?'Already Success!!':'Login now!'}</h1>
-        <button onClick={handleGoogleLogin} className=" btn w-10/12 mx-auto mt-4">
+        <h1 className="text-3xl pt-4 mx-auto font-bold">
+          {user ? "Already Success!!" : "Login now!"}
+        </h1>
+        <button
+          onClick={handleGoogleLogin}
+          className=" btn w-10/12 mx-auto mt-4"
+        >
           <FcGoogle size={25}></FcGoogle>Login with Google!
         </button>
         <form onSubmit={handleLogin} className="card-body">
@@ -85,17 +89,32 @@ const Login = () => {
             />
             {/* password */}
             <label className="label">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="input mx-auto"
-              placeholder="Password"
-            />
+            <div className=" flex relative">
+              <input
+                type={show ? "password" : "text"}
+                name="password"
+                className="input mx-auto"
+                placeholder="Password"
+              />
+              <button
+                onClick={() => setShow(!show)}
+                type="button"
+                className=" absolute top-[16%] right-5"
+              >
+                {show ? (
+                  <MdOutlineRemoveRedEye size={30} />
+                ) : (
+                  <IoMdEyeOff size={30} />
+                )}
+              </button>
+            </div>
             {/* forget password */}
             {error && <p className=" text-error text-sm">{error}</p>}
 
             <div onClick={handleForgotPassword}>
-              <Link className="link link-hover">Forgot password?</Link>
+              <Link to={"/auth/reset"} className="link link-hover">
+                Forgot password?
+              </Link>
             </div>
             <button type="submit" className="btn btn-neutral mt-4">
               Login

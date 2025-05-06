@@ -9,12 +9,13 @@ import { IoMdEyeOff } from "react-icons/io";
 const Register = () => {
   const navigate = useNavigate();
   // received context
-  const { createUser, updatedProfile, heroemail, googleLogin } =
+  const { createUser, updatedProfile,signOutUser, heroemail, googleLogin } =
     use(AuthContext);
     // Eye password state 
     const [show,setShow]=useState(true)
   // error state
   const [error, setError] = useState("");
+  // handle create user register handleing
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -35,11 +36,15 @@ const Register = () => {
           });
         // updated profile ended
         result && toast.success("You successfully registared !!");
+        signOutUser()
+        navigate("/auth")
+        return
       })
       .catch((error) => {
         error && setError(error.code);
       });
   };
+  // Handle Google login 
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {

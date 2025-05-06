@@ -9,8 +9,9 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [loading,setLoading]=useState(true)
   // hero email
-  const [heroemail,setHeroEmail]=useState(null)
-  console.log(heroemail)
+  const [heroemail,setHeroEmail]=useState(null);
+  // ForgotPassword Email
+  const [forgotEmail,setForgotEmail]=useState(null)
   // user state
   const [user,setUser]=useState(null)
   // console.log(user)
@@ -65,8 +66,8 @@ const AuthProvider = ({ children }) => {
     user,
     heroemail,
     setHeroEmail,
-    name: "imran",
-    email: "imran@gmail.com",
+   forgotEmail,
+   setForgotEmail
   };
   return <AuthContext value={userProfile}>{children}</AuthContext>;
 };

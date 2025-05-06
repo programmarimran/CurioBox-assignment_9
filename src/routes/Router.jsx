@@ -8,6 +8,7 @@ import Register from "../Pages/AuthPages/Register";
 import AuthRoot from "../Layout/AuthRoot";
 import Login from "../Pages/AuthPages/Login";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import ResetPassword from "../Pages/AuthPages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: "/auth/register",
         element: <Register></Register>,
       },
+      {
+        path:"/auth/reset",
+        element:<ResetPassword></ResetPassword>
+      }
     ],
   },
   {
