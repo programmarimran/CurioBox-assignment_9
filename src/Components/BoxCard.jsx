@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 const BoxCard = ({ product }) => {
     
   return (
-    <div className="bg-linear-to-b from-[#f0f4ff] to-[#dbeafe]  max-w-sm  mx-auto w-full h-full rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-linear-to-b from-[#f0f4ff] to-[#dbeafe]  mx-auto w-full h-full rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
       <img
         src={product.banner}
         alt={product.name}

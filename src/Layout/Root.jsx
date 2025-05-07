@@ -20,7 +20,7 @@ const Root = () => {
       </div>
       <HomeContext value={{setIsError}}>
         <main className=" w-11/12 mx-auto">
-          <section className=" min-h-[calc(100vh-358.09px)]">
+          <section className=" max-w-7xl mx-auto min-h-[calc(100vh-358.09px)]">
             <Outlet></Outlet>
           </section>
         </main>

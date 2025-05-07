@@ -7,19 +7,19 @@
           {
             "id": 1,
             "title": "Handpicked Surprises",
-            "icon": "🎉",
+            "icon": "🎁 ",
             "description": "Each Curio Box is filled with delightful and educational surprises tailored for young minds."
           },
           {
             "id": 2,
             "title": "On-Time Delivery",
-            "icon": "🚀",
+            "icon": "🚚",
             "description": "We ensure your box arrives promptly so the fun never has to wait."
           },
           {
             "id": 3,
             "title": "Kid-Friendly Pricing",
-            "icon": "👶💸",
+            "icon": "🧒",
             "description": "Premium content and toys at prices that work for every family."
           },
           {
@@ -42,7 +42,7 @@
           {
             "id": 1,
             "name": "Nadia H.",
-            "location": "Chattogram, Bangladesh",
+            "location": "Bangladesh",
             "rating": 5,
             "comment": "Curio Box is now a part of our monthly family ritual. The kids wait eagerly for it—such a joy!",
             "image": "https://i.ibb.co/TMb8YW6G/female.png"
@@ -50,7 +50,7 @@
           {
             "id": 2,
             "name": "Thomas K.",
-            "location": "Melbourne, Australia",
+            "location": "Australia",
             "rating": 4,
             "comment": "Creative and high-quality products. It’s more than a toy box—it’s an experience.",
             "image": "https://i.ibb.co/YTpjHbHk/image-180x180-8.png"
@@ -58,7 +58,7 @@
           {
             "id": 3,
             "name": "Ayesha Z.",
-            "location": "Lahore, Pakistan",
+            "location": "Pakistan",
             "rating": 5,
             "comment": "Absolutely wonderful! Great mix of fun and learning. Highly recommended to all parents.",
             "image": "https://i.ibb.co/TMb8YW6G/female.png"
@@ -66,7 +66,7 @@
           {
             "id": 4,
             "name": "Luis M.",
-            "location": "Madrid, Spain",
+            "location": "Spain",
             "rating": 4,
             "comment": "Great concept! My daughter loves the crafts and educational toys.",
             "image": "https://i.ibb.co/YTpjHbHk/image-180x180-8.png"
@@ -82,7 +82,7 @@
           {
             "id": 6,
             "name": "Junaid R.",
-            "location": "Karachi, Pakistan",
+            "location": "Pakistan",
             "rating": 5,
             "comment": "Best monthly subscription for kids. Full of excitement and learning!",
             "image": "https://i.ibb.co/YTpjHbHk/image-180x180-8.png"

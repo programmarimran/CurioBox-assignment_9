@@ -4,11 +4,13 @@ import SwiperSlider from "../Components/HomeLayout/SwiperSlider";
 import { Helmet } from "react-helmet-async";
 import { ProductContext } from "../ProductProvider/ProductProvider";
 import BoxCard from "../Components/BoxCard";
+import WhyChooseUs from "../Components/HomeLayout/whyChooseUs";
+import CustomerReviews from "../Components/HomeLayout/CustomerReviews";
 
 const Home = () => {
   const {data}=use(ProductContext)
   const productData=data.boxes
-  console.log(data)
+  // console.log(data)
   return (
     <div>
       <Helmet>
@@ -20,6 +22,7 @@ const Home = () => {
         </section>
       </header>
       <main>
+        {/* Explore Our Monthly Subscription Boxes */}
         <section className="my-24">
         <div className=" text-center w-3/4 mx-auto  mb-12 space-y-4">
           <h1 className=" text-2xl text-gray-800 font-bold">{data.sectionTitle
@@ -31,6 +34,14 @@ const Home = () => {
             productData.map(product=><BoxCard className={product.id==5?"order-1":''} key={product.id} product={product}></BoxCard>)
           }
          </div>
+        </section>
+        {/* Why Choose Curio Box? */}
+        <section>
+          <WhyChooseUs></WhyChooseUs>
+        </section>
+        {/* Curio Box Fans Speak! */}
+        <section className=" my-16">
+          <CustomerReviews></CustomerReviews>
         </section>
       </main>
     </div>
