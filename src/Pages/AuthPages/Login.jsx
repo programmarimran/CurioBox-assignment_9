@@ -70,8 +70,9 @@ const Login = () => {
   // handle google login
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        // console.log(result.user);
+
         toast.success(
           <span className=" flex">
             Your{" "}
@@ -118,7 +119,8 @@ const Login = () => {
               name="email"
               ref={refForgot}
               className="input mx-auto"
-              placeholder="Email"
+              placeholder="Email" 
+              required
             />
             {/* password */}
             <label className="label">Password</label>
@@ -127,7 +129,8 @@ const Login = () => {
                 type={show ? "password" : "text"}
                 name="password"
                 className="input mx-auto"
-                placeholder="Password"
+                placeholder="Password" 
+                required
               />
               <button
                 onClick={() => setShow(!show)}

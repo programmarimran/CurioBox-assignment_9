@@ -120,7 +120,8 @@ const Register = () => {
               defaultValue={heroemail}
               name="email"
               className="input"
-              placeholder="Email"
+              placeholder="Email" 
+              required
             />
             {/* password */}
             <label className="label">Password</label>
@@ -129,7 +130,8 @@ const Register = () => {
                 type={show ? "password" : "text"}
                 name="password"
                 className="input"
-                placeholder="Password"
+                placeholder="Password" 
+                required
               />
               <button
                 onClick={() => setShow(!show)}

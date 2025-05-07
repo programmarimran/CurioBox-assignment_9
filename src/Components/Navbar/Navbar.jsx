@@ -9,52 +9,59 @@ import { toast } from "react-toastify";
 // import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser, loading } = use(AuthContext);
   const [state, setState] = useState(false);
   const handleHambarger = () => {
     setState(!state);
   };
   const links = (
-    <ul
-      tabIndex={0}
-      className=" space-y-2 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-    >
-      <li className=" text-2xl">
+    <>
+      <li className=" my-1">
         <NavLink className=" link-hover" to={"/"}>
           Home
         </NavLink>
       </li>
-      <li className=" text-2xl">
-        <NavLink className=" link-hover" to={"/allboxes"}>
-          All Boxes
-        </NavLink>
-      </li>
-      <li className=" text-2xl">
+
+      <li className=" my-1">
         <NavLink className=" link-hover" to={"/about"}>
           About
         </NavLink>
       </li>
+      <li className=" my-1">
+        {" "}
+        <NavLink className=" link-hover" to={"/auth/myProfile"}>
+          My Profile
+        </NavLink>
+      </li>
       {user ? (
-        <li className=" text-2xl">
-          <NavLink className=" link-hover" to={"/auth/updateProfile"}>
-            Update Profile
-          </NavLink>
-        </li>
+        <>
+          <li className=" my-1">
+            {" "}
+            <NavLink className=" link-hover" to={"/allboxes"}>
+              All Boxes
+            </NavLink>
+          </li>
+        </>
       ) : (
         ""
       )}
-    </ul>
+    </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar p-0">
       <div className="navbar-start gap-4">
-        <div className="dropdown h-full">
+        <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
             <div onClick={handleHambarger}>
-              {state ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
+              {state ? <RxCross2 /> : <GiHamburgerMenu size={24} />}
             </div>
           </div>
-          <div>{links}</div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            {links}
+          </ul>
         </div>
         <Link to={"/"} className="text-xl font-bold">
           CurioBox
@@ -67,9 +74,14 @@ const Navbar = () => {
         {user?.photoURL ? (
           <>
             {/* ************ */}
-            <div className="tooltip tooltip-bottom bg-gray-200">
+
+            <div className="tooltip tooltip-bottom  bg-gray-200">
               <div className="tooltip-content">
-                <div className="animate-bounce text-orange-400  text-2xl font-black ">
+                <div
+                  className={`animate-bounce text-orange-400 ${
+                    user?.email.length < 15 ? "text-lg" : " text-xs"
+                  } font-black`}
+                >
                   {user ? user.email : ""}
                 </div>
               </div>
@@ -82,7 +94,13 @@ const Navbar = () => {
             {/* **************** */}
           </>
         ) : (
-          <FaCircleUser title={user?.email} size={40} />
+          <>
+            {loading ? (
+              <span className="loading loading-dots loading-xl"></span>
+            ) : (
+              <FaCircleUser title={user?.email} size={40} />
+            )}
+          </>
         )}
 
         <button className="btn btn-primary">

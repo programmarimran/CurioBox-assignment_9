@@ -12,8 +12,9 @@ import ResetPassword from "../Pages/AuthPages/ResetPassword";
 import BoxDetails from "../Components/HomeLayout/BoxDetails";
 import Loading from "../Pages/Loading";
 import OutsideErrorPage from "../Pages/ErrorPage/OutsideErrorPage";
-import UpdateProfile from "../Pages/AuthPages/UpdateProfile";
-import Update from "../Pages/Update";
+// import UpdateProfile from "../Pages/AuthPages/UpdateProfile";
+// import Update from "../Pages/Update";
+import MyProfile from "../Pages/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +33,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About></About>,
       },
-      {
-        path:"/update",
-        element:<Update></Update>
-      },
+     
       {
 
         path:"/box-details/:id",
@@ -63,9 +61,10 @@ const router = createBrowserRouter([
         path:"/auth/reset",
         element:<ResetPassword></ResetPassword>
       },
+      
       {
-        path:"/auth/updateProfile",
-        element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+        path:"/auth/myProfile",
+        element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       }
     ],
   },

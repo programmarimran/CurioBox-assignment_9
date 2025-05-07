@@ -42,7 +42,8 @@ const ResetPassword = () => {
                 defaultValue={forgotEmail}
               name="email"
               className="input mx-auto"
-              placeholder="Email"
+              placeholder="Email" 
+              required
             />
             <p className=" text-error text-lg">{error && error}</p>
 

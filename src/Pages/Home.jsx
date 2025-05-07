@@ -53,11 +53,11 @@ const Home = () => {
          <button onClick={handleShowMoreButton} className=" btn btn-primary mx-auto flex justify-center my-8">{show?'Show Less':'Show More'}</button>
         </section>
         {/* Why Choose Curio Box? */}
-        <section>
+        <section className=" pt-12">
           <WhyChooseUs></WhyChooseUs>
         </section>
         {/* Curio Box Fans Speak! */}
-        <section className=" my-16">
+        <section className=" pt-20 pb-12 my-24">
           <CustomerReviews></CustomerReviews>
         </section>
       </main>

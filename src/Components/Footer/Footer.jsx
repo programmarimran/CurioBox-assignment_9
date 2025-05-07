@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 
 const Footer = () => {
@@ -51,20 +51,25 @@ const Footer = () => {
        </nav>
        <nav className=" mx-auto ">
            <h3 className=" font-bold text-xl mb-3 text-gray-700">Social:</h3>
-        <ul className="flex flex-col gap-1 md:gap-3">
+        <ul className="flex gap-1 md:gap-3">
         <li>
-          <Link>
+          <Link to={'https://web.facebook.com/mdimran.hasan.79827803'} target="_blank">
             <FaFacebook className=" text-blue-500" size={30}></FaFacebook>
           </Link>
           </li>
          <li>
-         <Link>
+         <Link to={'https://www.youtube.com/@techmorebd1'} target="_blank">
             <FaYoutube className=" text-red-500" size={30}></FaYoutube>
           </Link>
          </li>
          <li>
-         <Link>
+         <Link to={'https://www.instagram.com/'} target="_blank">
             <FaInstagram className=" text-black" size={30}></FaInstagram>
+          </Link>
+         </li>
+         <li>
+         <Link to={'https://github.com/programmarimran'} target="_blank">
+            <FaGithub className=" text-black" size={30}></FaGithub>
           </Link>
          </li>
         </ul>
