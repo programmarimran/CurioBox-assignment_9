@@ -10,8 +10,8 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const navigate = useNavigate();
-  const location=useLocation()
-  console.log(location)
+  const location = useLocation();
+  console.log(location);
 
   //  received context
   const { signInUser, setForgotEmail, heroemail, user, googleLogin } =
@@ -20,20 +20,42 @@ const Login = () => {
   const [show, setShow] = useState(true);
   // error state
   const [error, setError] = useState("");
-  // console.log(error);
+
+  //Password Error
+  const [passwordError, setPasswordError] = useState("");
+
   // Login handleing start
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    //  Password authentication start with regular expression
+    const uppercaseRegex = /^(?=.*[A-Z]).{1,}$/;
+    const lowercaseRegex = /^(?=.*[a-z]).{1,}$/;
+    const passwordLength = /^.{6,}$/;
+    if (!uppercaseRegex.test(password)) {
+      setPasswordError("Please minimum 1 character Upercase");
+      setError("");
+      return;
+    } else if (!lowercaseRegex.test(password)) {
+      setPasswordError("Please minimum 1 character Lowercase");
+      setError("");
+      return;
+    } else if (!passwordLength.test(password)) {
+      setPasswordError("Please Your password minimum 6 character");
+      setError("");
+      return;
+    } else {
+      setPasswordError("");
+    }
     // console.log(email,password)
 
     signInUser(email, password)
       .then((result) => {
         // console.log(result.user)
         result && toast.success("You successfully login!!");
-        navigate(`${location?.state?location.state:'/'}`);
-        return
+        navigate(`${location?.state ? location.state : "/"}`);
+        return;
       })
       .catch((error) => {
         error && setError(error.code);
@@ -59,7 +81,7 @@ const Login = () => {
             Login Successfull!!
           </span>
         );
-        navigate(`${location?.state?location.state:'/'}`);
+        navigate(`${location?.state ? location.state : "/"}`);
         return;
       })
       .catch((error) => {
@@ -68,7 +90,9 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <Helmet><title>CurioBox||Login Page</title></Helmet>
+      <Helmet>
+        <title>CurioBox||Login Page</title>
+      </Helmet>
       <div className="card mx-auto  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <h1 className="text-3xl pt-4 mx-auto font-bold">
           {user ? "Already Success!!" : "Login now!"}
@@ -79,6 +103,11 @@ const Login = () => {
         >
           <FcGoogle size={25}></FcGoogle>Login with Google!
         </button>
+        <div className="flex mt-3 w-10/12 mx-auto items-center gap-4">
+          <hr className="flex-grow border-t-4 border-gray-400" />
+          <span className="text-gray-500 text-sm">OR</span>
+          <hr className="flex-grow border-t-4 border-gray-400" />
+        </div>
         <form onSubmit={handleLogin} className="card-body">
           <fieldset className="fieldset ">
             {/* email */}
@@ -112,9 +141,9 @@ const Login = () => {
                 )}
               </button>
             </div>
+            <p className=" text-error">{passwordError && passwordError}</p>
             {/* forget password */}
-            {error && <p className=" text-error text-sm">{error}</p>}
-
+            
             <div onClick={handleForgotPassword}>
               <Link to={"/auth/reset"} className="link link-hover">
                 Forgot password?
@@ -123,7 +152,8 @@ const Login = () => {
             <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>
-            <p className=" text-sm">
+            {error &&error==="auth/invalid-credential"?<p className=" text-error">Please Register your Email OR Valid Password </p>: <p className=" text-error text-sm">{error}</p>}
+            <p className=" my-3 text-sm">
               Do not have an Account? Please{" "}
               <Link className=" text-blue-500 underline" to={"/auth/register"}>
                 Register

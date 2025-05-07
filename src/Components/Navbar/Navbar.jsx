@@ -64,7 +64,7 @@ const Navbar = () => {
           {user ? (
             <span onClick={() => signOutUser()}>Logout</span>
           ) : (
-            <span>Login in</span>
+            <span>LogIn</span>
           )}
         </Link>
       </div>

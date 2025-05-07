@@ -17,7 +17,7 @@ const Footer = () => {
     </>
   );
   return (
-    <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+    <footer className="footer footer-horizontal footer-center bg-gray-50 text-base-content rounded p-10">
       <h1 className=" text-2xl text-base font-bold">CurioBox</h1>
       <nav className="grid grid-flow-col gap-4">{links}</nav>
       <nav>
