@@ -14,9 +14,9 @@ const WhyChooseUs = () => {
           {data.description}
         </p>
       </div>
-      <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-6" >
+      <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 justify-center gap-6" >
       {features.map((item) => (
-          <div key={item.id} className=" bg-linear-to-t from-[#f0f4ff] to-[#dbeafe] p-8 text-center space-y-4 rounded-2xl">
+          <div key={item.id} className=" bg-linear-to-t from-[#f0f4ff] to-[#dbeafe] shadow-2xl p-8 text-center space-y-4 rounded-2xl">
             
             <p className=" text-7xl">{item?.icon&&item.icon}</p>
             <h1 className=" text-2xl text-gray-800">{item.title}</h1>

@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import SwiperSlider from "../Components/HomeLayout/SwiperSlider";
 // import { Helmet } from "react-helmet";
 import { Helmet } from "react-helmet-async";
@@ -9,8 +9,24 @@ import CustomerReviews from "../Components/HomeLayout/CustomerReviews";
 
 const Home = () => {
   const {data}=use(ProductContext)
-  const productData=data.boxes
+  const allProductData=data.boxes;
+  const [productData,setProductData]=useState([])
   // console.log(data)
+  const [show,setShow]=useState(false)
+  const shortProduct=allProductData.slice(0,6)
+  console.log(shortProduct)
+  const handleShowMoreButton=()=>{
+    setShow(!show)
+
+  }
+  useEffect(()=>{
+    if(show){
+      setProductData(allProductData)
+    }
+    else{
+      setProductData(shortProduct)
+    }
+  },[show])
   return (
     <div>
       <Helmet>
@@ -34,6 +50,7 @@ const Home = () => {
             productData.map(product=><BoxCard className={product.id==5?"order-1":''} key={product.id} product={product}></BoxCard>)
           }
          </div>
+         <button onClick={handleShowMoreButton} className=" btn btn-primary mx-auto flex justify-center my-8">{show?'Show Less':'Show More'}</button>
         </section>
         {/* Why Choose Curio Box? */}
         <section>

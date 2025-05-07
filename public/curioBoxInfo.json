@@ -27,13 +27,8 @@
             "title": "Customizable Plans",
             "icon": "⚙️",
             "description": "Pause, switch, or skip a box with complete ease anytime."
-          },
-          {
-            "id": 5,
-            "title": "Exclusive Collectibles",
-            "icon": "🌟",
-            "description": "Unlock limited-edition items you won’t find in stores or anywhere else."
           }
+          
         ]
       },
       "customerReviews": {

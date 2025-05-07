@@ -231,6 +231,53 @@
       ],
       "ratings": 4.7,
       "number_of_reviews": 578
+    },
+    {
+      "id": 11,
+      "name": "Mindful Moments Box",
+      "slogan": "Calm, Focus, Grow—Mindfulness for Kids!",
+      "thumbnail": "https://i.ibb.co.com/QFS3m7wG/image-180x180-11.png",
+      "banner": "https://i.ibb.co.com/2YhXFXWY/image-800x600-8.png",
+      "frequency": "Monthly",
+      "price": 23.99,
+      "description": "Teach kids mindfulness through breathing cards, calm jars, and gratitude games.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Mindful Breathing Cards",
+        "Gratitude Journal",
+        "DIY Calm Jar"
+      ],
+      "subscription_benefits": [
+        "Mindfulness Tracker",
+        "Parent Tips",
+        "Audio Meditation Access"
+      ],
+      "ratings": 4.8,
+      "number_of_reviews": 345
+    },
+    {
+      "id": 12,
+      "name": "Language Learner Box",
+      "slogan": "Speak, Play, Learn—One Language at a Time!",
+      "thumbnail": "https://i.ibb.co.com/M5JmPPMh/image-180x180-12.png",
+      "banner": "https://i.ibb.co.com/k2ZcGqQx/image-800x600-9.png",
+      "frequency": "Monthly",
+      "price": 30.00,
+      "description": "Introduce new languages to kids with games, flashcards, and songs.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Bilingual Flashcards",
+        "Language Games",
+        "Sing-Along Songs"
+      ],
+      "subscription_benefits": [
+        "New Language Monthly",
+        "Progress Sheet",
+        "Video Lessons"
+      ],
+      "ratings": 4.9,
+      "number_of_reviews": 410
     }
+    
   ]
 }
