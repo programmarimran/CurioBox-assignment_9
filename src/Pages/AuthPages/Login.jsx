@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   //  received context
   const { signInUser, setForgotEmail, heroemail, user, googleLogin } =

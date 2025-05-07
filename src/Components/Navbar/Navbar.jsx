@@ -24,6 +24,12 @@ const Navbar = () => {
       <NavLink className=" link-hover" to={"/about"}>
         About
       </NavLink>
+      {
+        user?<NavLink className=" link-hover" to={"/auth/updateProfile"}>
+        Update Profile
+      </NavLink>:""
+      }
+      
     </>
   );
   return (

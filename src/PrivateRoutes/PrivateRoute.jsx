@@ -12,7 +12,7 @@ const PrivateRoute = ({children}) => {
     }
     // const navigate=useNavigate()
     const {user}=use(AuthContext)
-    console.log(user)
+    // console.log(user)
     if(user&&user?.email){
         return children;
     }
