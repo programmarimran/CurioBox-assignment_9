@@ -21,12 +21,12 @@ const Home = () => {
       </header>
       <main>
         <section className="my-24">
-        <div>
-          <h1>{data.sectionTitle
+        <div className=" text-center w-3/4 mx-auto  mb-12 space-y-4">
+          <h1 className=" text-2xl text-gray-800 font-bold">{data.sectionTitle
           }</h1>
-          <p>{data.sectionDescription}</p>
+          <p className=" text-sm text-gray-500 font-medium ">{data.sectionDescription}</p>
           </div>
-         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
          {
             productData.map(product=><BoxCard className={product.id==5?"order-1":''} key={product.id} product={product}></BoxCard>)
           }

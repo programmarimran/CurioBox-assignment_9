@@ -4,6 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { FaCircleUser } from "react-icons/fa6";
+import { toast } from "react-toastify";
 // import { GiHamburgerMenu } from "react-icons/gi";
 // import { RxCross2 } from "react-icons/rx";
 
@@ -78,13 +79,13 @@ const Navbar = () => {
           <FaCircleUser title={user?.email} size={40} />
         )}
 
-        <Link to={"/auth"} className="btn btn-primary">
+        <button className="btn btn-primary">
           {user ? (
-            <span onClick={() => signOutUser()}>Logout</span>
+            <span onClick={() => {signOutUser(),toast.warning("Logout Successfully")}}>Logout</span>
           ) : (
-            <span>LogIn</span>
+            <Link to={'/auth'}>LogIn</Link>
           )}
-        </Link>
+        </button>
       </div>
     </div>
   );
