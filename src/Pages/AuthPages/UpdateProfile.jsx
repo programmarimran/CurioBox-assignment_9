@@ -3,17 +3,23 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const UpdateProfile = () => {
-    const {updatedProfile}=use(AuthContext)
+    const {updatedProfile,setUser,user}=use(AuthContext)
     // console.log(updatedProfile)
     const [error,setError]=useState("")
+    const [name,setName]=useState(null)
+    const [image,setImage]=useState(null)
     const handleUpdateProfile=(e)=>{
         e.preventDefault();
-        const name=e.target.name.value;
-        const image=e.target.image.value;
+        const currentName=e.target.name.value;
+        setName(currentName)
+        const currentImage=e.target.image.value;
+        setImage(currentImage)
         // console.log(name,image)
         updatedProfile(name,image)
         .then(result=>{
             console.log(result)
+            
+            setUser({...user,displayName:name,photoURL:image})
         })
         .catch(error=>{
             setError(error.code)
@@ -35,7 +41,8 @@ const UpdateProfile = () => {
                 <input
                   type="text"
                   
-                  name="name"
+                  name="name" 
+                  value={name}
                   className="input mx-auto"
                   placeholder="Enter Your Name..."
                 />
@@ -45,6 +52,7 @@ const UpdateProfile = () => {
                   type="text"
                   
                   name="image"
+                  value={image}
                   className="input mx-auto"
                   placeholder="Enter Your Image URL..."
                 />

@@ -8,8 +8,8 @@ import Footer from '../Components/Footer/Footer';
 const AuthRoot = () => {
     return (
         <div className=' bg-base-200'>
-           <div className=' pb-6'>
-           <header className=' shadow-sm'>
+           <div className=' sticky top-0 z-10 pb-6'>
+           <header className=' bg-gray-300 shadow-sm'>
               <section className=' w-11/12 mx-auto'>
               <Navbar></Navbar>
               </section>

@@ -24,12 +24,13 @@ const Navbar = () => {
       <NavLink className=" link-hover" to={"/about"}>
         About
       </NavLink>
-      {
-        user?<NavLink className=" link-hover" to={"/auth/updateProfile"}>
-        Update Profile
-      </NavLink>:""
-      }
-      
+      {user ? (
+        <NavLink className=" link-hover" to={"/auth/updateProfile"}>
+          Update Profile
+        </NavLink>
+      ) : (
+        ""
+      )}
     </>
   );
   return (
@@ -57,11 +58,22 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-3">
         {user?.photoURL ? (
-          <div className="avatar">
-            <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-              <img title={user?.email} src={user?.photoURL} alt="User"/>
+          <>
+            {/* ************ */}
+            <div className="tooltip tooltip-bottom bg-gray-200">
+              <div className="tooltip-content">
+                <div className="animate-bounce text-orange-400  text-2xl font-black ">
+                 {user?user.email:''}
+                </div>
+              </div>
+              <div className="avatar">
+                <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                  <img src={user?.photoURL} alt="User" />
+                </div>
+              </div>
             </div>
-          </div>
+            {/* **************** */}
+          </>
         ) : (
           <FaCircleUser title={user?.email} size={40} />
         )}

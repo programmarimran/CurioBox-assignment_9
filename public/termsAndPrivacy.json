@@ -1,0 +1,87 @@
+{
+    "legalInfo": {
+      "termsAndConditions": {
+        "title": "Terms and Conditions",
+        "lastUpdated": "2025-05-07",
+        "sections": [
+          {
+            "id": 1,
+            "title": "Subscription Terms",
+            "content": "By subscribing to Curio Box, you agree to receive monthly boxes and pay the subscription fee unless canceled before the renewal date."
+          },
+          {
+            "id": 2,
+            "title": "Cancellation & Refunds",
+            "content": "You may cancel anytime before your next billing cycle. Refunds are not provided for already shipped boxes."
+          },
+          {
+            "id": 3,
+            "title": "Shipping Policy",
+            "content": "Boxes are shipped within the first week of every month. Delays may occur due to unforeseen events."
+          },
+          {
+            "id": 4,
+            "title": "Intellectual Property",
+            "content": "All content, logos, and designs are the intellectual property of Curio Box and cannot be used without permission."
+          },
+          {
+            "id": 5,
+            "title": "Modifications",
+            "content": "We reserve the right to update these terms at any time. Continued use of our service implies acceptance of the updated terms."
+          }
+        ]
+      },
+      "privacyPolicy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "2025-05-07",
+        "sections": [
+          {
+            "id": 1,
+            "title": "Information We Collect",
+            "content": "We collect personal information such as name, email address, shipping address, and payment details when you subscribe or place an order."
+          },
+          {
+            "id": 2,
+            "title": "How We Use Your Information",
+            "content": "We use your data to fulfill orders, improve our services, and send promotions or updates."
+          },
+          {
+            "id": 3,
+            "title": "Cookies and Tracking",
+            "content": "We use cookies to personalize user experience and analyze website traffic. Users may disable cookies through browser settings."
+          },
+          {
+            "id": 4,
+            "title": "Data Sharing",
+            "content": "Your data may be shared with third-party providers only to facilitate our services (e.g., shipping or payment processing)."
+          },
+          {
+            "id": 5,
+            "title": "Data Security",
+            "content": "We take reasonable security steps to protect your data, including encryption and secure storage."
+          },
+          {
+            "id": 6,
+            "title": "Children's Privacy",
+            "content": "We do not knowingly collect information from children under 13 without parental consent."
+          },
+          {
+            "id": 7,
+            "title": "Your Rights",
+            "content": "You can request access to, correction, or deletion of your personal data anytime."
+          },
+          {
+            "id": 8,
+            "title": "Policy Updates",
+            "content": "We may revise this privacy policy and will notify users of significant changes via the website."
+          },
+          {
+            "id": 9,
+            "title": "Contact Us",
+            "content": "If you have any questions regarding these policies, please email support@curiobox.com."
+          }
+        ]
+      }
+    }
+  }
+  

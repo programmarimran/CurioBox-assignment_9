@@ -1,27 +1,30 @@
-[   {
-     "id": 1,
-     "name": "Little Reader Box",
-     "slogan": "Big Imaginations Start with Little Books!",
-     "thumbnail": "https://i.ibb.co.com/cX29tZQp/image-180x180-2.png",
-     "banner": "https://i.ibb.co.com/zHP0QwgY/image-800x600-2.png",
-     "frequency": "Monthly",
-     "price": 22.99,
-     "description": "New books every month with reading activities and rewards.",
-     "tech_category": "Toys & Kids",
-     "features": [
-       "Age-Appropriate Books",
-       "Reading Stickers",
-       "Activity Sheets"
-     ],
-     "subscription_benefits": [
-       "Reading Rewards",
-       "Parent Tips",
-       "Story Time Video Access"
-     ],
-     "ratings": 4.9,
-     "number_of_reviews": 890
+{
+  "sectionTitle": "Explore Our Monthly Subscription Boxes",
+  "sectionDescription": "Discover a world of fun, learning, and creativity with our curated subscription boxes. Perfect for kids, each box brings new adventures and educational experiences every month.",
+  "boxes": [
+    {
+      "id": 1,
+      "name": "Little Reader Box",
+      "slogan": "Big Imaginations Start with Little Books!",
+      "thumbnail": "https://i.ibb.co.com/cX29tZQp/image-180x180-2.png",
+      "banner": "https://i.ibb.co.com/zHP0QwgY/image-800x600-2.png",
+      "frequency": "Monthly",
+      "price": 22.99,
+      "description": "New books every month with reading activities and rewards.",
+      "tech_category": "Toys & Kids",
+      "features": [
+        "Age-Appropriate Books",
+        "Reading Stickers",
+        "Activity Sheets"
+      ],
+      "subscription_benefits": [
+        "Reading Rewards",
+        "Parent Tips",
+        "Story Time Video Access"
+      ],
+      "ratings": 4.9,
+      "number_of_reviews": 890
     },
-   
     {
       "id": 2,
       "name": "STEM Builders Box",
@@ -68,7 +71,6 @@
       "ratings": 4.6,
       "number_of_reviews": 430
     },
-    
     {
       "id": 4,
       "name": "Creative Kids Box",
@@ -92,7 +94,6 @@
       "ratings": 4.7,
       "number_of_reviews": 542
     },
-
     {
       "id": 5,
       "name": "Puzzle Time Box",
@@ -232,4 +233,4 @@
       "number_of_reviews": 578
     }
   ]
-  
+}

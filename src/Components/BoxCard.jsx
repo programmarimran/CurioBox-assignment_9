@@ -5,15 +5,16 @@ import { FaStar } from "react-icons/fa";
 const BoxCard = ({ product }) => {
     
   return (
-    <div className="max-w-sm  mx-auto w-full h-full rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-linear-to-b from-[#f0f4ff] to-[#dbeafe]  max-w-sm  mx-auto w-full h-full rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
       <img
         src={product.banner}
         alt={product.name}
-        className="w-full shadow-2xl h-48 object-cover rounded-t-2xl"
+        className=" w-11/12 mx-auto mt-2 shadow-2xl h-48 object-cover rounded-t-2xl"
       />
 
-      <div className="p-4 space-y-2 shadow-2xl border-t-2 border-gray-200 bg-gray-100 rounded-b-2xl">
-        <div className="flex items-center justify-between">
+      <div className="p-4 space-y-2 shadow-2xl border-t-2 border-gray-200  rounded-b-2xl">
+       <div className=" w-11/12 mx-auto">
+       <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold">{product.name}</h2>
           <div className=" bg-amber-400 text-sm p-1 rounded-xl">{product.tech_category}</div>
           
@@ -44,6 +45,7 @@ const BoxCard = ({ product }) => {
         >
           View Details
         </Link>
+       </div>
       </div>
     </div>
   );

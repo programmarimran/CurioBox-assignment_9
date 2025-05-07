@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
   const [forgotEmail,setForgotEmail]=useState(null)
   // user state
   const [user,setUser]=useState(null)
-  console.log(user)
+  // console.log(user)
   // Register user
   const createUser=(email,password)=>{
     setLoading(true)
@@ -64,6 +64,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
     loading,
     user,
+    setUser,
     heroemail,
     setHeroEmail,
    forgotEmail,

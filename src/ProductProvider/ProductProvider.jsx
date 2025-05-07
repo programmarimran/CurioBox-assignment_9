@@ -2,12 +2,13 @@ import React, { createContext, use } from "react";
 const productPromise = fetch("/curious.json").then((res) => res.json());
 export const ProductContext = createContext(null);
 const ProductProvider = ({ children }) => {
-  const productData = use(productPromise);
+  const data = use(productPromise);
+  const productData=data.boxes
 
   // console.log(productData)
   return (
     <div>
-      <ProductContext value={productData}>{children}</ProductContext>
+      <ProductContext value={{productData,data}}>{children}</ProductContext>
     </div>
   );
 };
