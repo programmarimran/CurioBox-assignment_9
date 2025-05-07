@@ -24,7 +24,7 @@ const Footer = () => {
   );
   return (
     <footer className=" footer-horizontal  bg-gray-300 text-base-content rounded p-10">
-      <h1 className=" text-2xl text-gray-950 text-center font-extrabold">
+      <h1 className=" text-2xl mb-8 text-gray-950 text-center font-extrabold">
         CurioBox
       </h1>
       <aside className="md:grid grid-cols-3 justify-center items-start space-y-5">

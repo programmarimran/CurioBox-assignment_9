@@ -15,40 +15,46 @@ const Navbar = () => {
     setState(!state);
   };
   const links = (
-    <>
-      <NavLink className=" link-hover" to={"/"}>
-        Home
-      </NavLink>
-      <NavLink className=" link-hover" to={"/allboxes"}>
-        All Boxes
-      </NavLink>
-      <NavLink className=" link-hover" to={"/about"}>
-        About
-      </NavLink>
-      {user ? (
-        <NavLink className=" link-hover" to={"/auth/updateProfile"}>
-          Update Profile
+    <ul
+      tabIndex={0}
+      className=" space-y-2 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+    >
+      <li className=" text-2xl">
+        <NavLink className=" link-hover" to={"/"}>
+          Home
         </NavLink>
+      </li>
+      <li className=" text-2xl">
+        <NavLink className=" link-hover" to={"/allboxes"}>
+          All Boxes
+        </NavLink>
+      </li>
+      <li className=" text-2xl">
+        <NavLink className=" link-hover" to={"/about"}>
+          About
+        </NavLink>
+      </li>
+      {user ? (
+        <li className=" text-2xl">
+          <NavLink className=" link-hover" to={"/auth/updateProfile"}>
+            Update Profile
+          </NavLink>
+        </li>
       ) : (
         ""
       )}
-    </>
+    </ul>
   );
   return (
     <div className="navbar">
       <div className="navbar-start gap-4">
-        <div className="dropdown">
+        <div className="dropdown h-full">
           <div tabIndex={0} role="button" className="lg:hidden">
             <div onClick={handleHambarger}>
-              {state ? <RxCross2 /> : <GiHamburgerMenu size={24} />}
+              {state ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {links}
-          </ul>
+          <div>{links}</div>
         </div>
         <Link to={"/"} className="text-xl font-bold">
           CurioBox
@@ -64,7 +70,7 @@ const Navbar = () => {
             <div className="tooltip tooltip-bottom bg-gray-200">
               <div className="tooltip-content">
                 <div className="animate-bounce text-orange-400  text-2xl font-black ">
-                 {user?user.email:''}
+                  {user ? user.email : ""}
                 </div>
               </div>
               <div className="avatar">
@@ -81,9 +87,15 @@ const Navbar = () => {
 
         <button className="btn btn-primary">
           {user ? (
-            <span onClick={() => {signOutUser(),toast.warning("Logout Successfully")}}>Logout</span>
+            <span
+              onClick={() => {
+                signOutUser(), toast.warning("Logout Successfully");
+              }}
+            >
+              Logout
+            </span>
           ) : (
-            <Link to={'/auth'}>LogIn</Link>
+            <Link to={"/auth"}>LogIn</Link>
           )}
         </button>
       </div>
