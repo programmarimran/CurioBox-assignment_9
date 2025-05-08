@@ -102,7 +102,7 @@ const Navbar = () => {
                     user?.email.length < 15 ? "text-lg" : " text-xs"
                   } font-black`}
                 >
-                  {user ? user.email : ""}
+                  {user ? user.displayName : ""}
                 </div>
               </div>
               <div className="avatar">
