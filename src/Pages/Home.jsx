@@ -23,8 +23,10 @@ const Home = () => {
     if(show){
       setProductData(allProductData)
     }
+
     else{
       setProductData(shortProduct)
+      window.scrollTo({top:400, behavior: "smooth"})
     }
   },[show])
   return (
