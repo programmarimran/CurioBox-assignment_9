@@ -35,7 +35,7 @@ const Footer = () => {
        <nav className=" mx-auto ">
        <ul className="">
           <li className=" font-medium">
-            <Link className={" link-hover"} to={"#"}>
+            <Link className={" link-hover"} to={"/termsAndCondition"}>
               {" "}
               Terms and conditions
             </Link>

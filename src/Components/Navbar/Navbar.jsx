@@ -21,12 +21,6 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-
-      <li className=" my-1">
-        <NavLink className=" link-hover" to={"/about"}>
-          About
-        </NavLink>
-      </li>
       <li className=" my-1">
         {" "}
         <NavLink className=" link-hover" to={"/auth/myProfile"}>
@@ -45,6 +39,11 @@ const Navbar = () => {
       ) : (
         ""
       )}
+      <li className=" my-1">
+        <NavLink className=" link-hover" to={"/about"}>
+          About
+        </NavLink>
+      </li>
     </>
   );
   // console.log(state);

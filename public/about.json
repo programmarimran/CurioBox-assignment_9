@@ -1,0 +1,21 @@
+{
+    "title": "About Curiobox",
+    "subtitle": "Monthly discovery boxes that grow with your child's curiosity!",
+    "description": "Curiobox is a fun and educational platform specially designed for kids. We provide creative and engaging boxes filled with hands-on activities, learning tools, and fun experiments that help children explore, imagine, and grow their knowledge in exciting ways.",
+    "mission": "Our mission is to nurture curiosity, creativity, and learning in children through playful and meaningful experiences.",
+    "vision": "To become a trusted learning companion for every child by offering safe, smart, and joyful discovery boxes.",
+    "features": [
+      "Kid-friendly curious boxes for different age groups",
+      "STEM-inspired activities and crafts",
+      "Safe, screen-free hands-on learning tools",
+      "Interactive feedback and reward system",
+      "Parent-friendly dashboard for progress tracking",
+      "Secure login for families with Google or Email"
+    ],
+    "team": {
+      "developer": "Md Imran Hasan",
+      "role": "Frontend Developer & Designer",
+      "contact": "programmarimran@gmail.com"
+    }
+  }
+  

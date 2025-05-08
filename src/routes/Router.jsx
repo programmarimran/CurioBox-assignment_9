@@ -16,6 +16,7 @@ import OutsideErrorPage from "../Pages/ErrorPage/OutsideErrorPage";
 // import Update from "../Pages/Update";
 import MyProfile from "../Pages/MyProfile";
 import MyBoxes from "../Pages/MyBoxes";
+import TermsAndCondition from "../Components/TermsAndCondition";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         errorElement:<ErrorPage></ErrorPage>,
         hydrateFallbackElement:<Loading></Loading>
       },
+      {
+        path:"/termsAndCondition",
+        element:<TermsAndCondition></TermsAndCondition>
+      }
     ],
   },
 
