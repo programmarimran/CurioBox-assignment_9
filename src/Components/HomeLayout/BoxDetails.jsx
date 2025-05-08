@@ -10,7 +10,7 @@ import { ProductContext } from "../../ProductProvider/ProductProvider";
 const BoxDetails = () => {
   const navigate = useNavigate();
   const { user, loading } = use(AuthContext);
-  const { handleAddToCard } = use(ProductContext);
+  const { handleAddToCard, selectedProduct } = use(ProductContext);
   // console.log(user)
   const products = useLoaderData();
   const { id } = useParams();
@@ -36,6 +36,9 @@ const BoxDetails = () => {
   // handle add to card button and redirect My boxes
 
   const handleAddToCardButton = (product, review) => {
+    const findingProduct = selectedProduct.find(
+      (alreadyProduct) => alreadyProduct.id == product.id
+    );
     if (!review?.rating) {
       Swal.fire({
         icon: "warning",
@@ -44,11 +47,14 @@ const BoxDetails = () => {
         confirmButtonText: "Okey",
       });
       return;
+    } else if (findingProduct) {
+      toast.info("This Box Already Added ");
+      return;
+    } else {
+      handleAddToCard(product, review);
+      navigate("/myboxes");
+      return;
     }
-
-    handleAddToCard(product, review);
-    navigate("/myboxes");
-    return;
   };
 
   return (

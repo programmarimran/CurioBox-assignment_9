@@ -15,16 +15,27 @@ const ProductProvider = ({ children }) => {
   const [selectedProduct,setSelectedProduct]=useState([]);
   const [feedback,setFeedback]=useState({})
   const handleAddToCard=(product,customerReview)=>{
+
+    
+   
+
     
     setSelectedProduct([...selectedProduct,product])
     setFeedback(customerReview)
     toast.success("You have Successfully added to My Boxes this Product");
+  }
+  
+  const handleRemoveToCard=(id)=>{
+    // console.log(id)
+    const remainingSelectedProduct=selectedProduct.filter(product=>product.id!==id)
+    // console.log(remainingSelectedProduct)
+    setSelectedProduct(remainingSelectedProduct)
+    toast.warning("Box Cancel Successfully")
     
-
   }
   return (
     <div>
-      <ProductContext value={{selectedProduct,feedback,productData,handleAddToCard,data,curioBoxInfo}}>{children}</ProductContext>
+      <ProductContext value={{handleRemoveToCard,selectedProduct,feedback,productData,handleAddToCard,data,curioBoxInfo}}>{children}</ProductContext>
     </div>
   );
 };

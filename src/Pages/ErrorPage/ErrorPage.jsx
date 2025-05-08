@@ -24,7 +24,7 @@ const ErrorPage = () => {
           alt=""
         />
         <Link
-          className="btn absolute bottom-0 md:my-4 left-[40%] bg-blue-500 text-white wfull"
+          className="btn absolute bottom-0 md:my-4 left-[40%] btn-primary text-white wfull"
           to={"/"}
         >
           back to home

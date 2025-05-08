@@ -9,7 +9,7 @@ const OutsideErrorPage = () => {
 
           <div className=' relative'>
           <img className=' rounded-2xl' src="https://i.ibb.co.com/rYGxCbf/404-page-cover.jpg" alt="" />
-          <Link className='btn absolute bottom-0 md:my-4 left-[40%] bg-blue-500 text-white wfull' to={'/'}>back to home</Link>
+          <Link className='btn absolute bottom-0 md:my-4 left-[40%]  btn-primary text-white wfull' to={'/'}>back to home</Link>
           </div>
         </div>
     );
