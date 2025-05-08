@@ -1,5 +1,4 @@
 import React, { use } from "react";
-// import aboutData from "./aboutData";
 import { Helmet } from "react-helmet-async";
 const aboutResponse=fetch("/about.json").then(res=>res.json())
 const About = () => {

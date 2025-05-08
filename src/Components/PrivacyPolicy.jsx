@@ -1,14 +1,13 @@
 import React, { use } from 'react';
-const termsAndConditionsPromise=fetch("/termsAndPrivacy.json").then(res=>res.json())
-const TermsAndCondition = () => {
-    const {legalInfo}=use(termsAndConditionsPromise)
-    console.log(legalInfo.termsAndConditions)
-    const terms=legalInfo.termsAndConditions
-
-  const { title, lastUpdated, sections } = terms
+const privacyPolicyPromise=fetch("/termsAndPrivacy.json").then(res=>res.json())
+const PrivacyPolicy = () => {
+    const {legalInfo}=use(privacyPolicyPromise)
+    console.log(legalInfo.privacyPolicy)
+    const privacy=legalInfo.privacyPolicy
+  const { title, lastUpdated, sections } = privacy
 
   return (
-    
+   
     <div className="max-w-4xl mx-auto p-6 text-gray-800">
       <h1 className="text-3xl font-bold mb-2">{title}</h1>
       <p className="text-sm text-gray-500 mb-4">Last updated: {lastUpdated}</p>
@@ -23,4 +22,4 @@ const TermsAndCondition = () => {
   );
 };
 
-export default TermsAndCondition;
+export default PrivacyPolicy;

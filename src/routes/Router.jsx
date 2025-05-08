@@ -17,6 +17,7 @@ import OutsideErrorPage from "../Pages/ErrorPage/OutsideErrorPage";
 import MyProfile from "../Pages/MyProfile";
 import MyBoxes from "../Pages/MyBoxes";
 import TermsAndCondition from "../Components/TermsAndCondition";
+import PrivacyPolicy from "../Components/PrivacyPolicy";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:"/termsAndCondition",
         element:<TermsAndCondition></TermsAndCondition>
+      },
+      {
+        path:"/privacyPolicy",
+        element:<PrivacyPolicy></PrivacyPolicy>
       }
     ],
   },
