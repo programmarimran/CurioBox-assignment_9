@@ -1,16 +1,16 @@
 import React, { use, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ProductContext } from "../../ProductProvider/ProductProvider";
 
 const BoxDetails = () => {
-  // const navigate=useNavigate()
-  const {user,loading}=use(AuthContext)
-  const {handleAddToCard}=use(ProductContext)
+  const navigate = useNavigate();
+  const { user, loading } = use(AuthContext);
+  const { handleAddToCard } = use(ProductContext);
   // console.log(user)
   const products = useLoaderData();
   const { id } = useParams();
@@ -33,7 +33,24 @@ const BoxDetails = () => {
     toast.success("Thanks for Your Feedback !!");
     setReview(userFeedback);
   };
-  
+  // handle add to card button and redirect My boxes
+
+  const handleAddToCardButton = (product, review) => {
+    if (!review?.rating) {
+      Swal.fire({
+        icon: "warning",
+        title: "Please",
+        text: "Submit your Feedback and then Add to Card this Product Your Boxes .",
+        confirmButtonText: "Okey",
+      });
+      return;
+    }
+
+    handleAddToCard(product, review);
+    navigate("/myboxes");
+    return;
+  };
+
   return (
     <div className="px-4 py-6 space-y-6">
       <Helmet>
@@ -90,50 +107,65 @@ const BoxDetails = () => {
               ${product.price || 22}
             </p>
           </div>
-          <button onClick={()=>handleAddToCard(product,review)} className="btn btn-primary w-full ">Add to Cart</button>
+          <button
+            onClick={() => handleAddToCardButton(product, review)}
+            className="btn btn-primary w-full "
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
       {/* ********************************* */}
       {/* show rating and review */}
-      {
-        review?.rating?<div className="  ">
-        <div className=" space-y-6 bg-amber-50 p-8 rounded-2xl my-8">
-          <div className=" space-y-4 md:flex gap-16 items-center justify-center">
-            <h1 className=" text-2xl font-extrabold text-green-500 bg-green-50 p-4 rounded-2xl border-2 border-green-200">{review.comment}</h1>
-            <div className=" md:flex text-2xl font-extrabold text-yellow-800 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-300">
-              <span className="">Rating:</span>
-             <span className=" flex"> {[1, 2, 3, 4, 5].map((num, i) =>
-                num <= review.rating ? (
-                  <p key={i} className="">
-                    ⭐
-                  </p>
-                ) : (
-                  <p key={i} className="">
-                    ☆{" "}
-                  </p>
-                )
-              )}</span>
-            </div>
-          </div>
-          
-          <div className=" space-y-4 md:flex gap-4 justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
-            <div>
-            <img
-                className=" mx-auto h-10 w-10 rounded-full border-2 border-blue-600"
-                src={user?user.photoURL:''}
-                alt=""
-                />
-            </div>
-              <div>
-              {
-                  loading?<span className="loading loading-dots loading-xl"></span>:<h1 className="break-words text-lg font-bold">{user&&user.email}</h1>
-                }
+      {review?.rating ? (
+        <div className="  ">
+          <div className=" space-y-6 bg-amber-50 p-8 rounded-2xl my-8">
+            <div className=" space-y-4 md:flex gap-16 items-center justify-center">
+              <h1 className=" text-2xl font-extrabold text-green-500 bg-green-50 p-4 rounded-2xl border-2 border-green-200">
+                {review.comment}
+              </h1>
+              <div className=" md:flex text-2xl font-extrabold text-yellow-800 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-300">
+                <span className="">Rating:</span>
+                <span className=" flex">
+                  {" "}
+                  {[1, 2, 3, 4, 5].map((num, i) =>
+                    num <= review.rating ? (
+                      <p key={i} className="">
+                        ⭐
+                      </p>
+                    ) : (
+                      <p key={i} className="">
+                        ☆{" "}
+                      </p>
+                    )
+                  )}
+                </span>
               </div>
-          </div>
+            </div>
 
+            <div className=" space-y-4 md:flex gap-4 justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
+              <div>
+                <img
+                  className=" mx-auto h-10 w-10 rounded-full border-2 border-blue-600"
+                  src={user ? user.photoURL : ""}
+                  alt=""
+                />
+              </div>
+              <div>
+                {loading ? (
+                  <span className="loading loading-dots loading-xl"></span>
+                ) : (
+                  <h1 className="break-words text-lg font-bold">
+                    {user && user.email}
+                  </h1>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>:""
-      }
+      ) : (
+        ""
+      )}
       {/* ******************************* */}
 
       {/* Rating Form */}
