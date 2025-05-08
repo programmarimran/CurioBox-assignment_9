@@ -1,27 +1,42 @@
-import React from "react";
+import React, { use } from "react";
 import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Footer = () => {
-  const links = (
-    <>
-      <li>
-        <NavLink className=" link-hover" to={"/"}>
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className=" link-hover" to={"/allboxes"}>
-          All Boxes
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className=" link-hover" to={"/about"}>
-          About
-        </NavLink>
-      </li>
-    </>
-  );
+  const {user}=use(AuthContext)
+   const links = (
+     <>
+       <li className=" my-1">
+         <NavLink className=" link-hover" to={"/"}>
+           Home
+         </NavLink>
+       </li>
+       <li className=" my-1">
+         {" "}
+         <NavLink className=" link-hover" to={"/auth/myProfile"}>
+           My Profile
+         </NavLink>
+       </li>
+       {user ? (
+         <>
+           <li className=" my-1">
+             {" "}
+             <NavLink className=" link-hover" to={"/myboxes"}>
+             My Boxes
+             </NavLink>
+           </li>
+         </>
+       ) : (
+         ""
+       )}
+       <li className=" my-1">
+         <NavLink className=" link-hover" to={"/about"}>
+           About
+         </NavLink>
+       </li>
+     </>
+   );
   return (
     <footer className=" footer-horizontal  bg-gray-300 text-base-content rounded p-10">
       <h1 className=" text-2xl mb-8 text-gray-950 text-center font-extrabold">
@@ -51,7 +66,7 @@ const Footer = () => {
        </nav>
        <nav className=" mx-auto ">
            <h3 className=" font-bold text-xl mb-3 text-gray-700">Social:</h3>
-        <ul className="flex gap-1 md:gap-3">
+        <ul className="flex gap-4 md:gap-3">
         <li>
           <Link to={'https://web.facebook.com/mdimran.hasan.79827803'} target="_blank">
             <FaFacebook className=" text-blue-500" size={30}></FaFacebook>
