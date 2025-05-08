@@ -1,29 +1,34 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const BoxDetails = () => {
+  const {user}=use(AuthContext)
+  console.log(user)
   const products = useLoaderData();
   const { id } = useParams();
   const product = products.find((p) => p.id == id);
 
   const [ratingType, setRatingType] = useState("Excellent");
   const [rating, setRating] = useState("");
+  const [review, setReview] = useState({});
+  console.log(review);
   const handleSubmit = () => {
-    if(!rating){
+    if (!rating) {
       Swal.fire({
-                icon: "warning",
-                text: "Please select (1-5) rating",
-                confirmButtonText: "Ok",
-              })
-      return
+        icon: "warning",
+        text: "Please select (1-5) rating",
+        confirmButtonText: "Ok",
+      });
+      return;
     }
-    const userFeedback={comment:ratingType,rating:rating}
-    toast.success("Thanks for Your Feedback !!")
-    console.log(userFeedback)
+    const userFeedback = { comment: ratingType, rating: rating };
+    toast.success("Thanks for Your Feedback !!");
+    setReview(userFeedback);
   };
 
   return (
@@ -71,6 +76,7 @@ const BoxDetails = () => {
               </span>
             ))}
           </div>
+
           {/* card bottom price and rating */}
           <div className=" flex justify-between">
             <p className="text-yellow-600 font-semibold">
@@ -84,6 +90,42 @@ const BoxDetails = () => {
           <button className="btn btn-primary w-full ">Add to Cart</button>
         </div>
       </div>
+      {/* ********************************* */}
+      {/* show rating and review */}
+      {
+        review?.rating?<div className="  ">
+        <div className=" space-y-6 bg-amber-50 p-8 rounded-2xl my-8">
+          <div className=" flex gap-16 items-center justify-center">
+            <h1 className=" text-2xl font-extrabold text-green-500 bg-green-50 p-4 rounded-2xl border-2 border-green-200">{review.comment}</h1>
+            <div className=" flex text-2xl font-extrabold text-yellow-800 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-300">
+              <span className="">Rating:</span>
+              {[1, 2, 3, 4, 5].map((num, i) =>
+                num <= review.rating ? (
+                  <p key={i} className="">
+                    ⭐
+                  </p>
+                ) : (
+                  <p key={i} className="">
+                    ☆{" "}
+                  </p>
+                )
+              )}
+            </div>
+          </div>
+          
+          <div className=" flex gap-4 items-center justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
+            <img
+                className=" h-10 w-10 rounded-full border-2 border-blue-600"
+                src={user?user.photoURL:''}
+                alt=""
+                />
+                <h1 className=" text-lg font-bold">{user&&user.email}</h1>
+          </div>
+
+        </div>
+      </div>:""
+      }
+      {/* ******************************* */}
 
       {/* Rating Form */}
       <div className="bg-gray-50 p-5 rounded-lg">
@@ -124,7 +166,7 @@ const BoxDetails = () => {
             </p>
           </div>
           <button className="btn btn-success w-full" onClick={handleSubmit}>
-          Submit Review
+            Submit Review
           </button>
         </div>
       </div>

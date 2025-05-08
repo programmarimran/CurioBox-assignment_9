@@ -13,7 +13,7 @@ const BoxCard = ({ product }) => {
       />
 
       <div className="p-4 space-y-2 shadow-2xl border-t-2 border-gray-200  rounded-b-2xl">
-       <div className=" w-11/12 mx-auto">
+       <div className=" w-11/12 space-y-4 mx-auto">
        <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold">{product.name}</h2>
           <div className=" bg-amber-400 text-sm p-1 rounded-xl">{product.tech_category}</div>
@@ -21,13 +21,13 @@ const BoxCard = ({ product }) => {
         </div>
 
         <p className="text-gray-600 font-bold italic text-sm">{product.slogan}</p>
-
+        <hr  className=" border-2 border-dashed border-gray-500" />
         <ul className="list-disc list-inside text-sm text-gray-700 mt-2">
           {product.features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
         </ul>
-
+        <hr  className=" border-2 border-dashed border-gray-500" />
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center text-yellow-500 gap-1">
             <FaStar /> <span>{product.ratings}</span>

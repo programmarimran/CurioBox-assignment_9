@@ -14,7 +14,7 @@ const Home = () => {
   // console.log(data)
   const [show,setShow]=useState(false)
   const shortProduct=allProductData.slice(0,6)
-  console.log(shortProduct)
+  // console.log(shortProduct)
   const handleShowMoreButton=()=>{
     setShow(!show)
 
