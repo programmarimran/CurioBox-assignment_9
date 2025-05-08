@@ -12,6 +12,7 @@ const Navbar = () => {
   const { user, signOutUser, loading } = use(AuthContext);
   const [state, setState] = useState(false);
   const handleHambarger = () => {
+    console.log("kiso ekta ");
     setState(!state);
   };
   const links = (
@@ -47,21 +48,42 @@ const Navbar = () => {
       )}
     </>
   );
+  console.log(state);
   return (
     <div className="navbar p-0">
       <div className="navbar-start gap-4">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="lg:hidden">
-            <div onClick={handleHambarger}>
-              {state ? <RxCross2 /> : <GiHamburgerMenu size={24} />}
-            </div>
-          </div>
+        {/* <div className="dropdown">
+     
+            
+            <button onClick={()=>handleHambarger()} type="button">
+             <div tabIndex={0} className=" lg:hidden">
+        {state ? <RxCross2  /> : <GiHamburgerMenu  size={24} />}
+      </div>
+      </button>
+      
+      
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
+        </div> */}
+        <div className="dropdown">
+          <button onClick={handleHambarger} type="button">
+            <div tabIndex={0} className="lg:hidden">
+              {state ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
+            </div>
+          </button>
+
+          {state && (
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+            >
+              {links}
+            </ul>
+          )}
         </div>
         <Link to={"/"} className="text-xl font-bold">
           CurioBox

@@ -7,8 +7,8 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const BoxDetails = () => {
-  const {user}=use(AuthContext)
-  console.log(user)
+  const {user,loading}=use(AuthContext)
+  // console.log(user)
   const products = useLoaderData();
   const { id } = useParams();
   const product = products.find((p) => p.id == id);
@@ -119,7 +119,9 @@ const BoxDetails = () => {
                 src={user?user.photoURL:''}
                 alt=""
                 />
-                <h1 className=" text-lg font-bold">{user&&user.email}</h1>
+                {
+                  loading?<span className="loading loading-dots loading-xl"></span>:<h1 className=" text-lg font-bold">{user&&user.email}</h1>
+                }
           </div>
 
         </div>

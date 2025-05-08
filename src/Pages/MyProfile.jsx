@@ -9,6 +9,7 @@ const MyProfile = () => {
   
 //   console.log(user)
   const [error, setError] = useState("");
+  
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
