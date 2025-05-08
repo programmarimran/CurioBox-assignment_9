@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Root from "../Layout/Root";
 import Home from "../Pages/Home";
-import AllBoxes from "../Pages/AllBoxes";
+// import AllBoxes from "../Pages/AllBoxes";
 import About from "../Pages/About";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Register from "../Pages/AuthPages/Register";
@@ -15,6 +15,7 @@ import OutsideErrorPage from "../Pages/ErrorPage/OutsideErrorPage";
 // import UpdateProfile from "../Pages/AuthPages/UpdateProfile";
 // import Update from "../Pages/Update";
 import MyProfile from "../Pages/MyProfile";
+import MyBoxes from "../Pages/MyBoxes";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/allboxes",
-        element: <PrivateRoute><AllBoxes></AllBoxes></PrivateRoute>,
+        path: "/myboxes",
+        element: <PrivateRoute><MyBoxes></MyBoxes></PrivateRoute>,
       },
       {
         path: "/about",

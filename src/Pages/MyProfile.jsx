@@ -53,7 +53,7 @@ const MyProfile = () => {
           <h1 className=" text-2xl font-extrabold text-gray-950">Name:</h1>
           <h2 className="text-xl font-bold text-gray-500">{user?.displayName}{loading&&<span className="loading loading-dots loading-xl"></span>}</h2>
           <h1 className=" text-2xl font-extrabold text-gray-950">Email:</h1>
-          <p className="text-md text-gray-500">{user?.email}{loading&&<span className="loading loading-dots loading-xl"></span>}</p>
+          <p className="text-xl break-words text-gray-500">{user?.email}{loading&&<span className="loading loading-dots loading-xl"></span>}</p>
           </div>
           {/* ************************************** */}
           <hr className=" border-2 border-dashed border-gray-600 mx-auto w-11/12 "/>

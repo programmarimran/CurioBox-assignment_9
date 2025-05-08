@@ -37,8 +37,8 @@ const Navbar = () => {
         <>
           <li className=" my-1">
             {" "}
-            <NavLink className=" link-hover" to={"/allboxes"}>
-              All Boxes
+            <NavLink className=" link-hover" to={"/myboxes"}>
+            My Boxes
             </NavLink>
           </li>
         </>

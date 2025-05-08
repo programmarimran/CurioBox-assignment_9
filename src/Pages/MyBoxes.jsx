@@ -3,13 +3,13 @@ import BoxDetails from "../Components/HomeLayout/BoxDetails";
 import { Helmet } from "react-helmet-async";
 
 const detailsBox = fetch("/curiousDetails.json").then((res) => res.json());
-const AllBoxes = () => {
+const MyBoxes = () => {
   const details = use(detailsBox);
   console.log(details);
   return (
     <div>
       <Helmet><title>CurioBox||My-Booking page</title></Helmet>
-      this is all AllBoxes
+      this is all MyBoxes
       {/* <div className=" grid grid-cols-3">
         {details.map((product) => (
           <BoxDetails key={product.id} product={product}></BoxDetails>
@@ -19,4 +19,4 @@ const AllBoxes = () => {
   );
 };
 
-export default AllBoxes;
+export default MyBoxes;

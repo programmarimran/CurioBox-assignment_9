@@ -5,9 +5,12 @@ import { useLoaderData, useParams } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ProductContext } from "../../ProductProvider/ProductProvider";
 
 const BoxDetails = () => {
+  // const navigate=useNavigate()
   const {user,loading}=use(AuthContext)
+  const {handleAddToCard}=use(ProductContext)
   // console.log(user)
   const products = useLoaderData();
   const { id } = useParams();
@@ -30,7 +33,7 @@ const BoxDetails = () => {
     toast.success("Thanks for Your Feedback !!");
     setReview(userFeedback);
   };
-
+  
   return (
     <div className="px-4 py-6 space-y-6">
       <Helmet>
@@ -87,7 +90,7 @@ const BoxDetails = () => {
               ${product.price || 22}
             </p>
           </div>
-          <button className="btn btn-primary w-full ">Add to Cart</button>
+          <button onClick={()=>handleAddToCard(product,review)} className="btn btn-primary w-full ">Add to Cart</button>
         </div>
       </div>
       {/* ********************************* */}
