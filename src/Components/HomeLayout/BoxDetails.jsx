@@ -113,15 +113,19 @@ const BoxDetails = () => {
             </div>
           </div>
           
-          <div className=" space-y-4 md:flex gap-4 items-center justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
+          <div className=" space-y-4 md:flex gap-4 justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
+            <div>
             <img
-                className=" h-10 w-10 rounded-full border-2 border-blue-600"
+                className=" mx-auto h-10 w-10 rounded-full border-2 border-blue-600"
                 src={user?user.photoURL:''}
                 alt=""
                 />
-                {
-                  loading?<span className="loading loading-dots loading-xl"></span>:<h1 className=" text-lg font-bold">{user&&user.email}</h1>
+            </div>
+              <div>
+              {
+                  loading?<span className="loading loading-dots loading-xl"></span>:<h1 className="break-words text-lg font-bold">{user&&user.email}</h1>
                 }
+              </div>
           </div>
 
         </div>
