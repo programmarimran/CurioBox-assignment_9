@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const aboutResponse=fetch("/about.json").then(res=>res.json())
 const About = () => {
     const about=use(aboutResponse)
-    console.log(about)
+    // console.log(about)
   const { title, subtitle, description, mission, vision, features, team } =
     about;
 

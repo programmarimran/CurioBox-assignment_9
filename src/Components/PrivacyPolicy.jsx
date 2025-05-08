@@ -2,7 +2,7 @@ import React, { use } from 'react';
 const privacyPolicyPromise=fetch("/termsAndPrivacy.json").then(res=>res.json())
 const PrivacyPolicy = () => {
     const {legalInfo}=use(privacyPolicyPromise)
-    console.log(legalInfo.privacyPolicy)
+    // console.log(legalInfo.privacyPolicy)
     const privacy=legalInfo.privacyPolicy
   const { title, lastUpdated, sections } = privacy
 

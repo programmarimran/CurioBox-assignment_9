@@ -2,7 +2,7 @@ import React, { use } from 'react';
 const termsAndConditionsPromise=fetch("/termsAndPrivacy.json").then(res=>res.json())
 const TermsAndCondition = () => {
     const {legalInfo}=use(termsAndConditionsPromise)
-    console.log(legalInfo.termsAndConditions)
+    // console.log(legalInfo.termsAndConditions)
     const terms=legalInfo.termsAndConditions
 
   const { title, lastUpdated, sections } = terms

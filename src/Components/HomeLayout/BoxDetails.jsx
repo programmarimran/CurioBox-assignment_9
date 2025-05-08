@@ -19,7 +19,7 @@ const BoxDetails = () => {
   const [ratingType, setRatingType] = useState("Excellent");
   const [rating, setRating] = useState("");
   const [review, setReview] = useState({});
-  console.log(review);
+  // console.log(review);
   const handleSubmit = () => {
     if (!rating) {
       Swal.fire({
@@ -29,7 +29,7 @@ const BoxDetails = () => {
       });
       return;
     }
-    const userFeedback = { comment: ratingType, rating: rating };
+    const userFeedback = { comment: ratingType, rating: rating,id:id };
     toast.success("Thanks for Your Feedback !!");
     setReview(userFeedback);
   };

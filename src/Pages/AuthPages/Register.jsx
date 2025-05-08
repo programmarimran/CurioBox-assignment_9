@@ -71,7 +71,8 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log(result.user);
+        result&&""
+        // console.log(result.user);
         toast.success(
           <span className=" flex">
             Your{" "}

@@ -20,13 +20,14 @@ const MyProfile = () => {
     // console.log(name,image)
     updatedProfile(name, image)
       .then((result) => {
-        console.log(result);
+        result&&""
+        // console.log(result);
 
         setUser({ ...user, displayName: name, photoURL: image });
       })
       .catch((error) => {
         setError(error.code);
-        console.log(error.code);
+        // console.log(error.code);
       });
   };
   return (
