@@ -12,7 +12,6 @@ const Navbar = () => {
   const { user, signOutUser, loading } = use(AuthContext);
   const [state, setState] = useState(false);
   const handleHambarger = () => {
-    console.log("kiso ekta ");
     setState(!state);
   };
   const links = (
@@ -48,7 +47,7 @@ const Navbar = () => {
       )}
     </>
   );
-  console.log(state);
+  // console.log(state);
   return (
     <div className="navbar p-0">
       <div className="navbar-start gap-4">

@@ -95,11 +95,11 @@ const BoxDetails = () => {
       {
         review?.rating?<div className="  ">
         <div className=" space-y-6 bg-amber-50 p-8 rounded-2xl my-8">
-          <div className=" flex gap-16 items-center justify-center">
+          <div className=" space-y-4 md:flex gap-16 items-center justify-center">
             <h1 className=" text-2xl font-extrabold text-green-500 bg-green-50 p-4 rounded-2xl border-2 border-green-200">{review.comment}</h1>
-            <div className=" flex text-2xl font-extrabold text-yellow-800 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-300">
+            <div className=" md:flex text-2xl font-extrabold text-yellow-800 bg-yellow-50 p-4 rounded-2xl border-2 border-yellow-300">
               <span className="">Rating:</span>
-              {[1, 2, 3, 4, 5].map((num, i) =>
+             <span className=" flex"> {[1, 2, 3, 4, 5].map((num, i) =>
                 num <= review.rating ? (
                   <p key={i} className="">
                     ⭐
@@ -109,11 +109,11 @@ const BoxDetails = () => {
                     ☆{" "}
                   </p>
                 )
-              )}
+              )}</span>
             </div>
           </div>
           
-          <div className=" flex gap-4 items-center justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
+          <div className=" space-y-4 md:flex gap-4 items-center justify-center text-2xl font-extrabold text-gray-800 bg-gray-50 p-4 rounded-2xl border-2 border-gray-300">
             <img
                 className=" h-10 w-10 rounded-full border-2 border-blue-600"
                 src={user?user.photoURL:''}
