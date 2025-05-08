@@ -6,11 +6,11 @@ import { Link } from "react-router";
 import { FaX } from "react-icons/fa6";
 
 const MyBoxes = () => {
-  const { feedback, selectedProduct,handleRemoveToCard } = use(ProductContext);
+  const { feedback, selectedProduct, handleRemoveToCard } = use(ProductContext);
   // const { user } = use(AuthContext);
   // console.log(user);
-  console.log(feedback);
-  console.log(selectedProduct);
+  // console.log(feedback);
+  // console.log(selectedProduct);
 
   return (
     <div className=" flex flex-col gap-6">
@@ -36,23 +36,68 @@ const MyBoxes = () => {
             >
               <figure className="  md:ml-0 mx-auto">
                 <div className="avatar">
-                  <div className="w-24 md:w-24 md:h-24 flex justify-center items-center bg-base-300 mx-auto ml-5 m-6 rounded">
-                    <img className=" w-3/4" src={product.banner} />
+                  <div className=" w-44 h-full flex justify-center items-center bg-base-300 mx-auto ml-5 m-6 rounded">
+                    <img className="" src={product.banner} />
                   </div>
                 </div>
               </figure>
 
               <div className="card-body">
-                <h2 className=" text-xl font-bold md:card-title ">{product.name}</h2>
-                <p className=" text-sm font-normal">{product.description}</p>
-                <div className="card-actions justify-end">
-                  <Link to={`/box-details/${product.id}`}>
-                    <button className="btn btn-primary">Show Details</button>
-                  </Link>
-                  <span onClick={()=>handleRemoveToCard(product.id)} className=" text-2xl text-end">
+               <div className=" flex justify-between">
+               <h2 className=" text-2xl font-extrabold  ">
+                  {product.name}
+                </h2>
+                <span
+                    onClick={() => handleRemoveToCard(product.id)}
+                    className=" text-2xl text-end btn"
+                  >
                     <FaX></FaX>
                   </span>
+                {/*  */}
+               </div>
+                <p className=" text-lg font-normal">{product.description}</p>
+                <hr  className=" border-2 my-2 border-dashed border-gray-400"/>
+                <div className=" space-y-4">
+                  <p className=" text-xl font-black">
+                    Your rating type:{" "}
+                    <span className=" text-green-600 bg-green-100 p-1 border border-green-300 rounded-lg">
+                      {" "}
+                      {feedback.comment}
+                    </span>
+                  </p>
+
+                  {/* ***************** */}
+                <div className=" md:flex justify-between">
+                <div className=" font-extrabold text-2xl flex">
+                 <span className="">Rating:</span>
+                  <span className=" flex">
+                    {" "}
+                    {[1, 2, 3, 4, 5].map((num, i) =>
+                      num <= feedback.rating ? (
+                        <p key={i} className="">
+                          ⭐
+                        </p>
+                      ) : (
+                        <p key={i} className="">
+                          ☆{" "}
+                        </p>
+                      )
+                    )}
+                  </span>
+                 </div>
+                 <hr  className=" border-2 my-2 border-dashed border-gray-400"/>
+                 <Link to={`/box-details/${product.id}`}>
+                    <button className="btn btn-primary">Show Details</button>
+                  </Link>
+
                 </div>
+                  {/* ****************** */}
+                </div>
+
+               
+                  
+                 
+                
               </div>
             </div>
           ))}
@@ -64,9 +109,6 @@ const MyBoxes = () => {
           <button className=" btn hover:btn-primary">Back to Home</button>
         </Link>
       </div>
-
-
-   
     </div>
   );
 };
