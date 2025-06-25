@@ -10,7 +10,6 @@
 - Additional Screenshots or Sections:
   - [Screenshot 1](https://i.ibb.co/7Nxt2pZS/Screenshot-2025-06-25-162822.png)
   - [Screenshot 2](https://i.ibb.co/TDbKvw9X/Screenshot-2025-06-25-162859.png)
-  - [Screenshot 3](https://i.ibb.co/HTsffVtK/Screenshot-2025-06-25-151310.png)
 
 - Mobile View Screenshots:
   - [View Mobile 1](https://i.ibb.co/V4HCZ3B/Screenshot-2025-06-25-163655.png)
